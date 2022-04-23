@@ -1,51 +1,52 @@
-#include "FileManager.h"
 #include <iostream>
+#include <string>
+#include <list>
+#include <map>
 using namespace std;
 
 class Map
 {
 public:
-	// FileManager filemanager;
 
 	/*	Receives an input file name and line and returns a temporary file containing
 		a key-value pair of each word in the file followed by a count of 1.	*/
-	void map(string filename, string fileline)
+	string map(string filename, string fileline)
 	{
-		cout << "TESTING"
-		
-		//char letter;
-		string word[]{};
-		int count = 0;
-		
-		if (fileline == NULL)
+		string currentword;
+		string cleanstring;
+		string mappedstring;
+		// list newlist[]{};		// Holds the new list without punctuation.
+		// std::map newmap[][];
+		char letter;				// Holds the current letter.
+		int start = 0;				// Position to split the words.
+
+		// Removes punctuation from string.
+		for (int i = 0; i < fileline.length(); i++)
 		{
-			// Do nothing.
-		}
-		else
-		{
-			while (*fileline)
+			letter = fileline[i];
+			if (letter != '!' && letter != '?' && letter != '.' &&
+				letter != ',' && letter != ':' && letter != ';')
 			{
-				// Calculate word count.
-				if (*fileline == ' ' || *fileline == '\t' || *fileline == '\n')
-				{
-					// Do nothing.
-				}
-				else
-				{
-					count++;
-				}
+				cleanstring += letter;
 			}
-
-			cout << "There are " + count + " words.";
-
-			// Remove punctuation, whitespace and capitalization.
-			//for (int i = 0; i < count; i++)
-			//{
-			//	// Send intermediate output to buffer, which is then sent to the output file.
-			//	filemanager.buffer_export(word[i], 1);
-			//}
 		}
 
-		return 0;
+		for (int i = 0; i < cleanstring.length(); i++)
+		{
+			letter = cleanstring[i];
+			if (letter == " ")
+			{
+				currentword = cleanstring.substr(start, i);
+				mappedstring = currentword + ', 1' + '\n';
+				start = i;
+
+				cout << currentword << endl;
+				cout << mappedstring << endl;
+			}
+		}
+
+		cout << "Final: " << mappedstring << endl;
+
+		return mappedstring;
 	}
 };
