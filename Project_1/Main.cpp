@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Workflow.h"
 using namespace std;
 
