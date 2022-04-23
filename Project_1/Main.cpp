@@ -11,11 +11,11 @@ int main(void){
 	Workflow workflow;
 
 	cout << "Please enter input file path:" << endl;
-	cin >> inputpath;
+	getline(cin, inputpath);
 	cout << "Please enter temporary file path:" << endl;
-	cin >> temppath;
+	getline(cin, temppath);
 	cout << "Please enter output file path:" << endl;
-	cin >> outputpath;
+	getline(cin, outputpath);
 
 
 	workflow(inputpath, temppath, outputpath);		// Call workflow class and pass the file paths.
