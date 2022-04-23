@@ -38,13 +38,10 @@
     <ClCompile Include="Mapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Reduce.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Workflow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sort.cpp">
+    <ClCompile Include="Sorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Reducer.cpp">

@@ -148,9 +148,8 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mapper.cpp" />
-    <ClCompile Include="Reduce.cpp" />
     <ClCompile Include="Reducer.cpp" />
-    <ClCompile Include="Sort.cpp" />
+    <ClCompile Include="Sorter.cpp" />
     <ClCompile Include="Workflow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

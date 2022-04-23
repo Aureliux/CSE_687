@@ -5,7 +5,7 @@ using namespace std;
 
 /*	Receives an input file name and line and returns a temporary file containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
-string map(string filename, string fileline)
+string Mapper::map(string filename, string fileline)
 {
 	string currentword;
 	string cleanstring;

@@ -18,6 +18,6 @@ int main(void){
 	getline(cin, outputpath);
 
 
-	workflow(inputpath, temppath, outputpath);		// Call workflow class and pass the file paths.
+	workflow.workflow(inputpath, temppath, outputpath);		// Call workflow class and pass the file paths.
 
 }

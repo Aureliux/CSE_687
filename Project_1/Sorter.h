@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class Sort
+class Sorter
 {
 public:
 
