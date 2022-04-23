@@ -1,12 +1,23 @@
+#include <iostream>
+#include "Workflow.h"
+using namespace std;
 
-
-int main(void)
-{
-	// Testing
-	string filename = "\Desktop\SU\CSE 687";
-	string fileline = "This is a test string to count words.";
+int main(void){
 	
-	map(filename, fileline);
+	string inputpath;
+	string temppath;
+	string outputpath;
 
-	return 0;
+	Workflow workflow;
+
+	cout << "Please enter input file path:" << endl;
+	cin >> inputpath;
+	cout << "Please enter temporary file path:" << endl;
+	cin >> temppath;
+	cout << "Please enter output file path:" << endl;
+	cin >> outputpath;
+
+
+	workflow(inputpath, temppath, outputpath);		// Call workflow class and pass the file paths.
+
 }
