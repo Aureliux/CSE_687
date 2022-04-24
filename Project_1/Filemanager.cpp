@@ -35,3 +35,23 @@ void FileManager::writetotemp(string pathway, string mappedstring) {
 	tempfile << mappedstring << endl;
 	tempfile.close();
 }
+
+void FileManager::createoutputfile(string pathway) {
+	fstream outputfile;
+	outputfile.open(pathway + "\\output.txt", std::ios_base::out);
+	if (!outputfile)
+		cout << "File Create Fail!" << endl;
+	outputfile.close();
+}
+
+void FileManager::writetooutput(string pathway, string outputstring) {
+	fstream outputfile;
+	outputfile.open(pathway + "\\output.txt", std::ios_base::app);
+	outputfile << outputstring << endl;
+	outputfile.close();
+}
+
+void FileManager::deletetemp (string pathway) {
+	remove(pathway + "\\tempfile.txt");
+}
+
