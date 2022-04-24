@@ -1,10 +1,8 @@
 #pragma once
-#include <string>
-using namespace std;
+#include "FileManager.h"
+#include <algorithm>
 
-class Sorter
-{
+class Sorter {
 public:
-
-	string sort(string, string);
+	void sortfile(string temppath);
 };

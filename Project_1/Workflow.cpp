@@ -38,7 +38,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	filetext = filemanager.opentxtfile(temppath);
 
 	// Send string to the sorter and return a sorted string.
-	sortedstring = sorter.sort(temppath, mappedstring);
+	sorter.sortfile(temppath);
 
 	filetext = filemanager.opentxtfile(temppath);
 

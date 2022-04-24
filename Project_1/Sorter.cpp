@@ -1,13 +1,14 @@
 #include "Sorter.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
-string Sorter::sort(string filename, string fileline)
+FileManager filehandler;
+
+void Sorter::sortfile(string temppath)
 {
-	string sortedstring;
-
-	// Logic here
-
-	return sortedstring;
+	vector<string> sortstring = filehandler.readtempfile(temppath);
+	sort(sortstring.begin(), sortstring.end());
+	filehandler.createsortedfile(temppath);
+	for (int i = 0; i < sortstring.size(); i++)
+	{
+		filehandler.writetosortedfile(temppath, sortstring[i]);
+	}
 }
