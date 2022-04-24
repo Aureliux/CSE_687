@@ -4,16 +4,6 @@
 #include "Workflow.h"
 using namespace std;
 
-string convertpath(string path){
-{
-	string::size_type pos=0;
-   	while((pos=path.find_first_of('\\',pos))!=string::npos){
-		path.insert(pos, "\\");
-		pos=pos+2;
-	}
-	return path;
-}
-
 int main(void){
 	
 	string inputpath;
@@ -29,10 +19,6 @@ int main(void){
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
 	
-	inputpath = convertpath(inputpath);
-	temppath = convertpath(temppath);
-	outputpath = convertpath(outputpath);
-
 	workflow.workflow(inputpath, temppath, outputpath);		// Call workflow class and pass the file paths.
 
 }
