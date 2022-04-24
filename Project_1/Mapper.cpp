@@ -16,8 +16,8 @@ string Mapper::map(string filename, string fileline)
 	int start = 0;				// Start position to split the words.
 	int end = 0;				// End position to split the words.
 
-	cout << "Initial String: " << fileline << endl;
-	cout << "Initial Length: " << fileline.length() << endl;
+	// cout << "Initial String: " << fileline << endl;
+	// cout << "Initial Length: " << fileline.length() << endl;
 
 	// Removes punctuation and capitalization from string.
 	for (int i = 0; i < fileline.length(); i++)
@@ -33,8 +33,8 @@ string Mapper::map(string filename, string fileline)
 			cleanstring += letter;
 		}
 	}
-	cout << "Clean String: " << cleanstring << endl;
-	cout << "Clean Length: " << cleanstring.length() << endl;
+	// cout << "Clean String: " << cleanstring << endl;
+	// cout << "Clean Length: " << cleanstring.length() << endl;
 
 	for (int i = 0; i <= cleanstring.length(); i++)
 	{

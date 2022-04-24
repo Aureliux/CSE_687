@@ -1,2 +1,9 @@
-﻿  Mapper.cpp
-  Project_1.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\Project_1.exe
+﻿  Filemanager.cpp
+  Main.cpp
+  Mapper.cpp
+  Reducer.cpp
+  Sorter.cpp
+  Workflow.cpp
+  Generating Code...
+Workflow.obj : error LNK2019: unresolved external symbol "public: class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > __cdecl FileManager::opentxtfile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?opentxtfile@FileManager@@QEAA?AV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z) referenced in function "public: void __cdecl Workflow::workflow(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?workflow@Workflow@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00@Z)
+C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\Project_1.exe : fatal error LNK1120: 1 unresolved externals

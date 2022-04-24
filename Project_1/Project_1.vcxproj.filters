@@ -47,5 +47,8 @@
     <ClCompile Include="Reducer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Filemanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
