@@ -6,11 +6,12 @@ using namespace std;
 
 string convertpath(string path){
 {
-    while((pos=path.find_first_of('\\',pos))!=string::npos){
-        path.insert(pos, "\\");
-        pos=pos+2;
-    }
-    return path;
+	string::size_type pos=0;
+   	while((pos=path.find_first_of('\\',pos))!=string::npos){
+		path.insert(pos, "\\");
+		pos=pos+2;
+	}
+	return path;
 }
 
 int main(void){
