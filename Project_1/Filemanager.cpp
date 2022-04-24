@@ -10,12 +10,10 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	directory_iterator b(pathway), e;
 	vector<path> txt_file(b, e);
 	ifstream opentxt;
-	for (int i = 0; i < txt_file.size(); i++)
-	{
+	for (int i = 0; i < txt_file.size(); i++){
 		opentxt.open(txt_file[i]);
 		if (opentxt) {
-			while (getline(opentxt, line))
-			{
+			while (getline(opentxt, line)){
 				txtdata.push_back(line);
 			}
 		}
