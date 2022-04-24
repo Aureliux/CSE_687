@@ -1,8 +1,9 @@
-#include "Filemanager.h"
 #include "Workflow.h"
+#include "FileManager.h"
 #include "Mapper.h"
 #include "Sorter.h"
 #include "Reducer.h"
+#include "Filemanager.h"
 using namespace std;
 
 void Workflow::workflow(string inputpath, string temppath, string outputpath)
@@ -23,7 +24,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	// fileline = filemanager(inputpath);
 
 	// TESTING
-	filetext = opentxtfile(inputpath);
+	filetext = filemanager.opentxtfile(inputpath);
 
 	for (int i = 0; i < filetext.size(); i++)
 	{

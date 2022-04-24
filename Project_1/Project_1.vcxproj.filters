@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Filemanager.h">
+    <ClInclude Include="filemanager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Workflow.h">

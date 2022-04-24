@@ -140,7 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Filemanager.h" />
+    <ClInclude Include="filemanager.h" />
     <ClInclude Include="Mapper.h" />
     <ClInclude Include="Reducer.h" />
     <ClInclude Include="Sorter.h" />
