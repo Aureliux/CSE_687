@@ -14,4 +14,3 @@ class FileManager
 public:
 	vector<string> opentxtfile(string pathway);
 };
-
