@@ -1,6 +1,6 @@
-#include "FileManager.h"
+#include "filemanager.h"
 
-vector<string> opentxtfile(string pathway) {
+vector<string> FileManager::opentxtfile(string pathway) {
 	vector<string> txtdata;
 	string line;
 	path str(pathway);

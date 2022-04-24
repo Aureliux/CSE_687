@@ -9,6 +9,7 @@ using namespace std;
 void Workflow::workflow(string inputpath, string temppath, string outputpath)
 {
 	vector<string> filetext;
+	vector<string> mappedfile;
 	string fileline;
 	string mappedstring;
 	string sortedstring;
@@ -32,7 +33,8 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 
 		// Send string to the mapper and return a mapped string.
 		mappedstring = mapper.map(inputpath, fileline);
-		cout << "Mapped Line: " << mappedstring << endl;
+		mappedfile[i] = mappedstring;
+		cout << "Mapped Line: " << mappedfile[i] << endl;
 
 		// Send string to the sorter and return a sorted string.
 		sortedstring = sorter.sort(inputpath, mappedstring);
@@ -42,5 +44,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 		reducedstring = reducer.reduce(inputpath, sortedstring);
 		// cout << "Reduced String: " << reducedstring << endl;
 	}
+
+	// cout << "Mapped File: " << mappedfile << endl;
 }
 	
