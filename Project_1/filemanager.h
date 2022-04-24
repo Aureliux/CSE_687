@@ -1,30 +1,17 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <filesystem>
+#include <vector>
 
 using namespace std;
+using namespace std::filesystem;
 
-ifstream filemanager;
-void readfile(string filename) {
-	filemanager.open(filename, ios::in);
-	while (!filemanager){
-		cout << "File Failed To Open!" << endl;
-		cout << "Please enter file name:" << endl;
-		cin >> filename;
-		filemanager.open(filename);
-	}
-}
 
-void wirtefile(string filename) {
-	filemanager.open(filename, ios::out);
-	while (!filemanager) {
-		cout << "File Failed To Create!" << endl;
-		cout << "Please enter file name:" << endl;
-		cin >> filename;
-		filemanager.open(filename);
-	}
-}
+class FileManager
+{
+public:
+	vector<string> opentxtfile(string pathway);
+};
 
-void closefile(string filename) {
-	filemanager.close();
-}
