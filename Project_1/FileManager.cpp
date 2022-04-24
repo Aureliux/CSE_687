@@ -1,5 +1,6 @@
 #include "filemanager.h"
 
+// Read all the text file in the input directory and save each line to vector.
 vector<string> FileManager::opentxtfile(string pathway) {
 	vector<string> txtdata;
 	string line;
@@ -21,6 +22,7 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	return txtdata;
 }
 
+// Creat a temp.txt to be save temporary result from mapper.
 void FileManager::createtempfile(string pathway) {
 	fstream tempfile;
 	tempfile.open(pathway+"\\tempfile.txt", std::ios_base::out);
@@ -29,6 +31,7 @@ void FileManager::createtempfile(string pathway) {
 	tempfile.close();
 }
 
+// Write to temp.txt.
 void FileManager::writetotemp(string pathway, string mappedstring) {
 	ofstream tempfile;
 	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::app);
@@ -36,6 +39,7 @@ void FileManager::writetotemp(string pathway, string mappedstring) {
 	tempfile.close();
 }
 
+// Creat a output.txt to be save final result.
 void FileManager::createoutputfile(string pathway) {
 	fstream outputfile;
 	outputfile.open(pathway + "\\output.txt", std::ios_base::out);
@@ -44,6 +48,7 @@ void FileManager::createoutputfile(string pathway) {
 	outputfile.close();
 }
 
+// Write to output.txt
 void FileManager::writetooutput(string pathway, string outputstring) {
 	fstream outputfile;
 	outputfile.open(pathway + "\\output.txt", std::ios_base::app);
@@ -51,6 +56,7 @@ void FileManager::writetooutput(string pathway, string outputstring) {
 	outputfile.close();
 }
 
+// Delete temp.txt after final result save to output.txt
 void FileManager::deletetemp (string pathway) {
 	remove(pathway + "\\tempfile.txt");
 }
