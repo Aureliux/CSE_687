@@ -22,3 +22,18 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	}
 	return txtdata;
 }
+
+void FileManager::createtempfile(string pathway) {
+	fstream tempfile;
+	tempfile.open(pathway+"\\tempfile.txt", std::ios_base::out);
+	if (!tempfile)
+		cout << "File Create Fail!" << endl;
+	tempfile.close();
+}
+
+void FileManager::writetotemp(string pathway, string mappedstring) {
+	ofstream tempfile;
+	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::app);
+	tempfile << mappedstring << endl;
+	tempfile.close();
+}
