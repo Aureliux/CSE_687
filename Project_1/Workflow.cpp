@@ -26,15 +26,20 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 
 	// TESTING
 	filetext = filemanager.opentxtfile(inputpath);
+	mappedfile.push_back(mappedstring);
+	cout << mappedfile[0] << endl;
 
 	for (int i = 0; i < filetext.size(); i++)
 	{
 		fileline = filetext[i];
+		cout << fileline << endl;
 
 		// Send string to the mapper and return a mapped string.
 		mappedstring = mapper.map(inputpath, fileline);
-		mappedfile[i] = mappedstring;
+		mappedfile.push_back(mappedstring);
+		cout << mappedfile[i] << endl;
 		cout << "Mapped Line: " << mappedfile[i] << endl;
+		// cout << "Mapped Line: " << mappedfile[i] << endl;
 
 		// Send string to the sorter and return a sorted string.
 		sortedstring = sorter.sort(inputpath, mappedstring);

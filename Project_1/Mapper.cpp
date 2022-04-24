@@ -41,9 +41,9 @@ string Mapper::map(string filename, string fileline)
 		letter = cleanstring[i];
 		if (letter == ' ')
 		{
-			cout <<"i: " << i << endl;
-			cout << "Start: " << start << endl;
-			cout << "End: " << end << endl;
+			// cout <<"i: " << i << endl;
+			// cout << "Start: " << start << endl;
+			// cout << "End: " << end << endl;
 			
 			end = i - start;
 			currentword = cleanstring.substr(start, end);
@@ -59,8 +59,8 @@ string Mapper::map(string filename, string fileline)
 				start = i + 1;
 			}
 
-			cout << "Current Word: " << currentword << endl;
-			cout << "Interim String: " << mappedstring << endl;
+			// cout << "Current Word: " << currentword << endl;
+			// cout << "Interim String: " << mappedstring << endl;
 		}
 		if (i == cleanstring.length())
 		{
