@@ -19,6 +19,7 @@ public:
 	vector<string> readtempfile(string pathway); //Read temp.txt for sort class
 	void writetosortedfile(string pathway, string mappedstring); //Write to sorted.txt.
 	void createoutputfile(string pathway); //Creat a output.txt to be save final result.
+	vector<string> readsortedfile(string pathway); //Read sorted.txt for reduce class
 	void writetooutput(string pathway, string outputstring); //Write to output.txt
 	void deletetemp(string pathway); //Delete temp.txt after final result save to output.txt
 };
