@@ -88,6 +88,24 @@ void FileManager::createoutputfile(string pathway) {
 	outputfile.close();
 }
 
+//Read sorted.txt for reduce class
+vector<string> FileManager::readsortedfile(string pathway) {
+	vector<string> sorteddata;
+	string line;
+	ifstream sortedfile;
+	tempfile.open(pathway + "\\sorted.txt");
+	if (!sortedfile) {
+		cout << "File Open Fail!" << endl;
+		exit(EXIT_FAILURE);
+	}
+	while (getline(sortedfile, line))
+	{
+		sorteddata.push_back(line);
+	}
+	sortedfile.close();
+	return sorteddata;
+}
+
 // Write to output.txt
 void FileManager::writetooutput(string pathway, string outputstring) {
 	fstream outputfile;
