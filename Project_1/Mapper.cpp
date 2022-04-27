@@ -45,9 +45,6 @@ string Mapper::map(string filename, string fileline)
 				mappedstring.append("\n");
 				start = i + 1;
 			}
-
-			// cout << "Current Word: " << currentword << endl;
-			// cout << "Interim String: " << mappedstring << endl;
 		}
 		if (i == cleanstring.length())
 		{

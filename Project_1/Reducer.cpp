@@ -3,8 +3,10 @@
 string Reducer::reduce(string filename, vector<string> sortedtext)
 {
 	string reducedstring;
+	cout << sortedtext[0] << endl; // CRASHING HERE!
+	cout << "REACHED HERE!" << endl;
 
-	for (int i = 0; i <= sortedtext.size(); i++)
+	for (vector<int>::size_type i = 0; i < sortedtext.size(); i++)
 	{
 		while (sortedtext[i] == sortedtext[i + 1])
 		{
@@ -13,7 +15,7 @@ string Reducer::reduce(string filename, vector<string> sortedtext)
 		}
 	}
 
-	for (int i = 0; i <= sortedtext.size(); i++)
+	for (vector<int>::size_type i = 0; i <= sortedtext.size(); i++)
 	{
 		reducedstring += sortedtext[i];
 	}

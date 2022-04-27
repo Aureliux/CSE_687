@@ -1,7 +1,3 @@
-﻿  Filemanager.cpp
-  Main.cpp
-  Mapper.cpp
-  Reducer.cpp
-  Workflow.cpp
-  Generating Code...
-  Project_1.vcxproj -> C:\Users\Joann\source\repos\Aureliux\CSE_687\Project_1\x64\Debug\Project_1.exe
+﻿  Reducer.cpp
+C:\Users\aurel\source\repos\CSE_687\Project_1\Reducer.cpp(14,10): warning C4834: discarding return value of function with 'nodiscard' attribute
+  Project_1.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\Project_1.exe
