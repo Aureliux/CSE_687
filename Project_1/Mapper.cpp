@@ -1,7 +1,4 @@
 #include "Mapper.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 /*	Receives an input file name and line and returns a temporary file containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
@@ -10,14 +7,9 @@ string Mapper::map(string filename, string fileline)
 	string currentword;
 	string cleanstring;
 	string mappedstring;
-	// list newlist[]{};		// Holds the new list without punctuation.
-	// std::map newmap[][];
 	char letter;				// Holds the current letter.
 	int start = 0;				// Start position to split the words.
 	int end = 0;				// End position to split the words.
-
-	// cout << "Initial String: " << fileline << endl;
-	// cout << "Initial Length: " << fileline.length() << endl;
 
 	// Removes punctuation and capitalization from string.
 	for (int i = 0; i < fileline.length(); i++)
@@ -33,17 +25,12 @@ string Mapper::map(string filename, string fileline)
 			cleanstring += letter;
 		}
 	}
-	// cout << "Clean String: " << cleanstring << endl;
-	// cout << "Clean Length: " << cleanstring.length() << endl;
 
 	for (int i = 0; i <= cleanstring.length(); i++)
 	{
 		letter = cleanstring[i];
 		if (letter == ' ')
 		{
-			// cout <<"i: " << i << endl;
-			// cout << "Start: " << start << endl;
-			// cout << "End: " << end << endl;
 			
 			end = i - start;
 			currentword = cleanstring.substr(start, end);

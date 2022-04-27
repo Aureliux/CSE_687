@@ -1,10 +1,4 @@
 #include "Workflow.h"
-#include "FileManager.h"
-#include "Mapper.h"
-#include "Sorter.h"
-#include "Reducer.h"
-#include "Filemanager.h"
-using namespace std;
 
 void Workflow::workflow(string inputpath, string temppath, string outputpath)
 {
@@ -12,7 +6,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	vector<string> mappedfile;
 	string fileline;
 	string mappedstring;
-	string sortedstring;
+	vector<string> sortedtext;
 	string reducedstring;
 	Mapper mapper;
 	Sorter sorter;
@@ -40,10 +34,10 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	// Send string to the sorter and return a sorted string.
 	sorter.sortfile(temppath);
 
-	filetext = filemanager.opentxtfile(temppath);
+	filetext = filemanager.readsortedfile(temppath);
 
 	// Send string to the reducer and return a reduced string.
-	reducedstring = reducer.reduce(temppath, sortedstring);
+	reducedstring = reducer.reduce(temppath, sortedtext);
 
 }
 	

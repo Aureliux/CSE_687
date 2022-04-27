@@ -93,7 +93,7 @@ vector<string> FileManager::readsortedfile(string pathway) {
 	vector<string> sorteddata;
 	string line;
 	ifstream sortedfile;
-	tempfile.open(pathway + "\\sorted.txt");
+	sortedfile.open(pathway + "\\sorted.txt");
 	if (!sortedfile) {
 		cout << "File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
