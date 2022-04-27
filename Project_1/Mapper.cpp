@@ -15,13 +15,11 @@ string Mapper::map(string filename, string fileline)
 	for (int i = 0; i < fileline.length(); i++)
 	{
 		letter = fileline[i];
-		if (letter != '!' && letter != '?' && letter != '.' &&
-			letter != ',' && letter != ':' && letter != ';')
-		{
+		if (letter != '!' && letter != '?' && letter != '.' && letter != ',' 
+			&& letter != ':' && letter != ';' && letter != '\"' && letter != '\'' 
+			&& letter != '&' && letter != '-') {
 			if (isupper(letter))
-			{
 				letter = tolower(letter);
-			}
 			cleanstring += letter;
 		}
 	}
@@ -45,9 +43,6 @@ string Mapper::map(string filename, string fileline)
 				mappedstring.append("\n");
 				start = i + 1;
 			}
-
-			// cout << "Current Word: " << currentword << endl;
-			// cout << "Interim String: " << mappedstring << endl;
 		}
 		if (i == cleanstring.length())
 		{
