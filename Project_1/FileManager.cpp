@@ -11,13 +11,11 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	directory_iterator b(pathway), e;
 	vector<path> txt_file(b, e);
 	ifstream opentxt;
-	for (int i = 0; i < txt_file.size(); i++)
-	{
+	for (int i = 0; i < txt_file.size(); i++){
 		opentxt.open(txt_file[i]);
 		if (opentxt) {
-			while (getline(opentxt, line))
-			{
-				txtdata.push_back(line);
+			while (getline(opentxt, line)){
+				txtdata.push_back(line); //Push each line from the text file to a vector to pass to mapper.
 			}
 		}
 		opentxt.close();
@@ -25,10 +23,10 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	return txtdata;
 }
 
-// Creat a temp.txt to be save temporary result from mapper.
+// Create a temp.txt to be save temporary result from mapper.
 void FileManager::createtempfile(string pathway) {
 	fstream tempfile;
-	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out);
+	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out); //Create temp file to stored data.
 	if (!tempfile) {
 		cout << "File Create Fail!" << endl;
 		exit(EXIT_FAILURE);
@@ -40,11 +38,11 @@ void FileManager::createtempfile(string pathway) {
 void FileManager::writetotemp(string pathway, string mappedstring) {
 	fstream tempfile;
 	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::app);
-	tempfile << mappedstring << endl;
+	tempfile << mappedstring << endl; //Will accept a string line from mapper to write out to temp file.
 	tempfile.close();
 }
 
-// Creat a sorted.txt to be save sorted data.
+// Create a sorted.txt to be save sorted data.
 void FileManager::createsortedfile(string pathway) {
 	fstream tempfile;
 	tempfile.open(pathway + "\\sorted.txt", std::ios_base::out);
@@ -79,7 +77,7 @@ void FileManager::writetosortedfile(string pathway, string mappedstring) {
 	tempfile.close();
 }
 
-// Creat a output.txt to be save final result.
+// Create a output.txt to be save final result.
 void FileManager::createoutputfile(string pathway, string filename) {
 	fstream outputfile;
 	outputfile.open(pathway + filename, std::ios_base::out);
@@ -114,7 +112,7 @@ void FileManager::writetooutput(string pathway, string filename, string outputst
 	outputfile.close();
 }
 
-// Delete temp.txt after final result save to output.txt
+// Delete temp.txt and sorted.txt after final result save to output.txt
 void FileManager::deletetemp(string pathway) {
 	remove(pathway + "\\tempfile.txt");
 	remove(pathway + "\\sorted.txt");

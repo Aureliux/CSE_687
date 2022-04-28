@@ -5,9 +5,7 @@ using namespace std;
 
 int main(void){
 	
-	string inputpath;
-	string temppath;
-	string outputpath;
+	string inputpath, temppath, outputpath;
 
 	Workflow workflow;
 

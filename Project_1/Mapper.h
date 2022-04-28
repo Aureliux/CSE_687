@@ -10,7 +10,8 @@ using namespace std;
 class Mapper
 {
 public:
+	void export_map(string temppath, vector<string> str_v);
+	void map(string temppath, string fileline);
+	void leftoverfrombuff(string pathway);
 
-	string map(string temppath, string fileline);
-	// void export_map(string temppath, string str);
 };

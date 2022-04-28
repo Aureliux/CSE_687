@@ -2,29 +2,26 @@
 
 void Workflow::workflow(string inputpath, string temppath, string outputpath)
 {
-	vector<string> filetext;
-	vector<string> mappedfile;
-	string fileline;
-	string mappedstring;
-	vector<string> sortedtext;
-	vector<string> reducedstring;
 	Mapper mapper;
 	Sorter sorter;
 	Reducer reducer;
 	FileManager filemanager;
+	Mapper map;
+	vector<string> filetext, mappedfile, sortedtext, reducedstring;
+	string fileline, mappedstring;
+
 
 	// Send string to the mapper and return a mapped string.
-	filetext = filemanager.opentxtfile(inputpath);
-	filemanager.createtempfile(temppath);
 	cout << "******************" << endl;
 	cout << "Reading Files...." << endl;
 	cout << "******************" << endl << endl;
+	filetext = filemanager.opentxtfile(inputpath);
+	filemanager.createtempfile(temppath);
 	for (int i = 0; i < filetext.size(); i++) {
 		fileline = filetext[i];
-		mapper.map(temppath, fileline);
-		//mappedfile.push_back(mappedstring);
-		//filemanager.writetotemp(temppath, mappedfile[i]);
+		map.map(temppath, fileline);
 	}
+	map.leftoverfrombuff(temppath);
 
 	// Send string to the sorter and return a sorted string.
 	filetext = filemanager.opentxtfile(temppath);
@@ -47,6 +44,6 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	// Create additional success file.
 	filemanager.createoutputfile(outputpath, "\\success.txt");
 	filemanager.writetooutput(outputpath, "\\success.txt", "SUCCESS");
-	filemanager.deletetemp(temppath);
+	//filemanager.deletetemp(temppath);
 }
 	
