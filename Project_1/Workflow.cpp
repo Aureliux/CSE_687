@@ -21,9 +21,9 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	cout << "******************" << endl << endl;
 	for (int i = 0; i < filetext.size(); i++) {
 		fileline = filetext[i];
-		mappedstring = mapper.map(inputpath, fileline);
-		mappedfile.push_back(mappedstring);
-		filemanager.writetotemp(temppath, mappedfile[i]);
+		mapper.map(temppath, fileline);
+		//mappedfile.push_back(mappedstring);
+		//filemanager.writetotemp(temppath, mappedfile[i]);
 	}
 
 	// Send string to the sorter and return a sorted string.
