@@ -1,19 +1,19 @@
 #include "Reducer.h"
 
-string Reducer::reduce(string filename, vector<string> sortedtext)
-{
-	string reducedstring;
-
-	for (int i = 0; i < sortedtext.size() - 1; i++){
-		if (sortedtext[i] == sortedtext[i + 1]) {
+vector<string> Reducer::reduce(vector<string> sortedtext){
+	for (int i = 0; i < sortedtext.size(); i++){
+		int v_size = sortedtext.size();
+		int dup_word = 0;
+		int j = i + 1;
+		while (j < sortedtext.size() && sortedtext[i] == sortedtext[j]){
+			sortedtext.erase(remove(sortedtext.begin() + i + 1, sortedtext.end(), sortedtext[j]), sortedtext.end());
+			dup_word = v_size - sortedtext.size();
+			j++;
+		}
+		while (dup_word > 0){
 			sortedtext[i].append(", 1");
-			remove(sortedtext.begin(), sortedtext.end(), sortedtext[i]);
+			dup_word--;
 		}
 	}
-
-	for (vector<int>::size_type i = 0; i <= sortedtext.size(); i++){
-		reducedstring += sortedtext[i];
-	}
-
-	return reducedstring;
+	return sortedtext;
 }

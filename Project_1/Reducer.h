@@ -9,5 +9,5 @@ class Reducer
 {
 public:
 
-	vector<string> reduce(string, vector<string>);
+	vector<string> reduce(vector<string>);
 };
