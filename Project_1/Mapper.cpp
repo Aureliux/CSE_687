@@ -12,40 +12,33 @@ string Mapper::map(string filename, string fileline)
 	int end = 0;				// End position to split the words.
 
 	// Removes punctuation and capitalization from string.
-	for (int i = 0; i < fileline.length(); i++)
-	{
+	for (int i = 0; i < fileline.length(); i++){
 		letter = fileline[i];
 		if (letter != '!' && letter != '?' && letter != '.' && letter != ',' 
-			&& letter != ':' && letter != ';' && letter != '\"' && letter != '\'' 
-			&& letter != '&' && letter != '-') {
+		    && letter != ':' && letter != ';' && letter != '\"' 
+		    && letter != '\'' && letter != '&' && letter != '-') {
 			if (isupper(letter))
 				letter = tolower(letter);
 			cleanstring += letter;
 		}
 	}
 
-	for (int i = 0; i <= cleanstring.length(); i++)
-	{
+	for (int i = 0; i <= cleanstring.length(); i++){
 		letter = cleanstring[i];
-		if (letter == ' ')
-		{
-			
+		if (letter == ' '){
 			end = i - start;
 			currentword = cleanstring.substr(start, end);
 			currentword = currentword.append(", 1");
 			mappedstring += currentword;
-			if (i == 0)
-			{
+			if (i == 0){
 				start = i;
 			}
-			else
-			{
+			else{
 				mappedstring.append("\n");
 				start = i + 1;
 			}
 		}
-		if (i == cleanstring.length())
-		{
+		if (i == cleanstring.length()){
 			end = i - start;
 			currentword = cleanstring.substr(start, end);
 			currentword = currentword.append(", 1");
