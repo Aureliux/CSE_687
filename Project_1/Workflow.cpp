@@ -40,7 +40,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	filetext = filemanager.readsortedfile(temppath);
 	// Send string to the reducer and return a reduced string.
 
-	reducedstring = reducer.reduce(temppath, filetext);
+	reducedstring = reducer.reduce(filetext);
 
 	cout << "******************" << endl;
 	cout << "Outputing File...." << endl;
