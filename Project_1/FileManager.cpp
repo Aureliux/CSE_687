@@ -80,9 +80,9 @@ void FileManager::writetosortedfile(string pathway, string mappedstring) {
 }
 
 // Creat a output.txt to be save final result.
-void FileManager::createoutputfile(string pathway) {
+void FileManager::createoutputfile(string pathway, string filename) {
 	fstream outputfile;
-	outputfile.open(pathway + "\\output.txt", std::ios_base::out);
+	outputfile.open(pathway + filename, std::ios_base::out);
 	if (!outputfile)
 		cout << "File Create Fail!" << endl;
 	outputfile.close();
@@ -107,9 +107,9 @@ vector<string> FileManager::readsortedfile(string pathway) {
 }
 
 // Write to output.txt
-void FileManager::writetooutput(string pathway, string outputstring) {
+void FileManager::writetooutput(string pathway, string filename, string outputstring) {
 	fstream outputfile;
-	outputfile.open(pathway + "\\output.txt", std::ios_base::app);
+	outputfile.open(pathway + filename, std::ios_base::app);
 	outputfile << outputstring << endl;
 	outputfile.close();
 }
