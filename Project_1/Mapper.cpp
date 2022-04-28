@@ -2,11 +2,15 @@
 
 /*	Receives an input file name and line and returns a temporary file containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
-string Mapper::map(string filename, string fileline)
+string Mapper::map(string filepath, string fileline)
 {
 	string currentword;
 	string cleanstring;
+	vector<string> mappedfile;
 	string mappedstring;
+	string bufferedstring;
+	// FileManager filemanager;
+	array <string, 99> buffer{};
 	char letter;				// Holds the current letter.
 	int start = 0;				// Start position to split the words.
 	int end = 0;				// End position to split the words.
@@ -46,12 +50,38 @@ string Mapper::map(string filename, string fileline)
 		}
 	}
 
-	/*	The map() function will call a second function export that takes a key and value as two parameters.
-		The export function will buffer output in memory and periodically write the data out to disk (periodicity
-		can be based on the size of the buffer). The intermediate data will be written to the temporary directory
-		(specified via command line). */
+	/*
+	The export function will buffer output in memory and periodically write the data out to disk (periodicity
+	can be based on the size of the buffer). The intermediate data will be written to the temporary directory
+	(specified via command line).
+	*/
 
-	// Logic here
+	//cout << mappedstring << endl;
+	//cout << "REACHED HERE!" << endl;
+
+	//void export_map(string filepath, string mappedstring);
+	//{
+	//	cout << "ENTERED EXPORT!" << endl;
+	//	int j = 0;
+	//	for (int i = 0; i < mappedstring.length(); i++) {
+
+	//		j = i;
+
+	//		bufferedstring += mappedstring[i];
+
+	//		// buffer array back to string
+	//		//while (j < buffer.size()-1)
+	//		//{
+	//		//	cout << mappedstring[j] << endl;
+	//		//	buffer[j] = mappedstring[j];
+	//		//	bufferedstring += buffer[j];
+	//		//	j++;
+	//		//}
+
+	//		mappedfile.push_back(bufferedstring);
+	//		filemanager.writetotemp(temppath, mappedfile[i]);
+	//	}
+	//}
 
 	return mappedstring;
 }
