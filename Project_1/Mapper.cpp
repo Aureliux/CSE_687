@@ -8,9 +8,9 @@ string Mapper::map(string filepath, string fileline)
 	string cleanstring;
 	vector<string> mappedfile;
 	string mappedstring;
-	string bufferedstring;
+	// string bufferedstring;
 	// FileManager filemanager;
-	array <string, 99> buffer{};
+	// array <string, 99> buffer{};
 	char letter;				// Holds the current letter.
 	int start = 0;				// Start position to split the words.
 	int end = 0;				// End position to split the words.
