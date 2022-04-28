@@ -1,1 +1,2 @@
-﻿LINK : fatal error LNK1318: Unexpected PDB error; OK (0) ''
+﻿  Mapper.cpp
+vcruntimed.lib(VCRUNTIME140D.dll) : fatal error LNK1318: Unexpected PDB error; OK (0) ''

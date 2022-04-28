@@ -28,7 +28,7 @@ void Mapper::map(string temppath, string fileline)
 					letter = tolower(letter);
 				cleanstring += letter;
 			}
-		}
+	}
 	for (int i = 0; i <= cleanstring.length(); i++) {
 			letter = cleanstring[i];
 			if (letter == ' ') {
@@ -50,7 +50,7 @@ void Mapper::map(string temppath, string fileline)
 				currentword = currentword.append(", 1");
 				mappedstring += currentword;
 			}
-		}
+	}
 	map_v.push_back(mappedstring);
 	if (map_v.size() == buffer_size) {
 		for (size_t i = 0; i < map_v.size(); i++) {
