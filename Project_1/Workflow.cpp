@@ -49,6 +49,5 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	for (int i = 0; i < reducedstring.size(); i++){
 		filemanager.writetooutput(outputpath, reducedstring[i]);
 	}
-
 }
 	
