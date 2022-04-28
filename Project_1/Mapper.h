@@ -11,6 +11,6 @@ class Mapper
 {
 public:
 
-	void map(string temppath, string fileline);
-	void export_map(string temppath, string str);
+	string map(string temppath, string fileline);
+	// void export_map(string temppath, string str);
 };
