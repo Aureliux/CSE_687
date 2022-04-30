@@ -1,5 +1,5 @@
 # CSE_687 - Object Oriented Design
-# Team Members: Omar Vargas, Huiying Wu
+# Team Members: Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 
 Requirements to Run:
 C++17 - Needed to include the "filesystem" library used by the FileManager class.
