@@ -1,17 +1,16 @@
 #include "Workflow.h"
 
+// Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
 void Workflow::workflow(string inputpath, string temppath, string outputpath)
 {
+	FileManager filemanager;
 	Mapper mapper;
 	Sorter sorter;
 	Reducer reducer;
-	FileManager filemanager;
-	Mapper map;
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
 	string fileline, mappedstring;
 
-
-	// Send string to the mapper and return a mapped string.
+	// Read text files from the input directory, send each line to the mapper, and return a mapped string to the temporary directory.
 	cout << "******************" << endl;
 	cout << "Reading Files...." << endl;
 	cout << "******************" << endl << endl;
@@ -19,18 +18,18 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	filemanager.createtempfile(temppath);
 	for (int i = 0; i < filetext.size(); i++) {
 		fileline = filetext[i];
-		map.map(temppath, fileline);
+		mapper.map(temppath, fileline);
 	}
-	map.leftoverfrombuff(temppath);
+	mapper.leftoverfrombuff(temppath);
 
-	// Send string to the sorter and return a sorted string.
+	// Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(temppath);
 	cout << "******************" << endl;
 	cout << "Sorting File...." << endl;
 	cout << "******************" << endl << endl;
 	sorter.sortfile(temppath);
 
-	// Send string to the reducer and return a reduced string.
+	// Read the sorted text file and send it to the reducer, which will return a reduced text string which is subsequently saved to the output directory.
 	sortedtext = filemanager.readsortedfile(temppath);
 	cout << "******************" << endl;
 	cout << "Reducing File...." << endl;
@@ -41,9 +40,8 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 		filemanager.writetooutput(outputpath, "\\output.txt", reducedstring[i]);
 	}
 	
-	// Create additional success file.
+	// Create a success file once the Map-Reduce operation is completed.
 	filemanager.createoutputfile(outputpath, "\\success.txt");
 	filemanager.writetooutput(outputpath, "\\success.txt", "SUCCESS");
-	//filemanager.deletetemp(temppath);
+	filemanager.deletetemp(temppath);
 }
-	

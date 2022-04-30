@@ -2,6 +2,7 @@
 
 FileManager filehandler;
 
+// Reads a string vector from the mapped file, sorts the vector in alphabetical order, and creates a sorted file in the temporary directory.
 void Sorter::sortfile(string temppath)
 {
 	vector<string> sortstring = filehandler.readtempfile(temppath);

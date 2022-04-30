@@ -1,6 +1,8 @@
 #include "Reducer.h"
 
+// Deletes repeated words and appends a "1" to the original word to count how many times it was repeated. Then, returns a final reduced string.
 vector<string> Reducer::reduce(vector<string> sortedtext){
+	
 	for (int i = 0; i < sortedtext.size(); i++){
 		int v_size = sortedtext.size();
 		int dup_word = 0;
@@ -15,5 +17,5 @@ vector<string> Reducer::reduce(vector<string> sortedtext){
 			dup_word--;
 		}
 	}
-	return sortedtext;
+	return sortedtext; // Final reduced string.
 }
