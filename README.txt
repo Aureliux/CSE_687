@@ -4,6 +4,7 @@
 Requirements to Run:
 C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
+Native Unit Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
 Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare their methods and include files.
