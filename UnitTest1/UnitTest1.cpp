@@ -33,5 +33,29 @@ namespace Project1Test
 			workflow.workflow(input, temp, output);
 			
 		}
+
+		TEST_METHOD(TestMethod2)
+		{
+			FileManager filemanager;
+			string filename("output.txt");
+			string inputpath("C:\\Users\\aurel\\source\\repos\\CSE_687\\Input_Text");
+			string temppath("C:\\Users\\aurel\\source\\repos\\CSE_687\\Temp_Text");
+			string outputpath("C:\\Users\\aurel\\source\\repos\\CSE_687\\Output_Text");
+			string mappedstring("");
+			string outputstring("");
+			
+			// Test every FileManager method.
+			filemanager.opentxtfile(inputpath);
+			filemanager.createtempfile(temppath);
+			filemanager.writetotemp(temppath, mappedstring);
+			filemanager.createsortedfile(temppath);
+			filemanager.readtempfile(temppath);
+			filemanager.writetosortedfile(temppath, mappedstring);
+			filemanager.createoutputfile(outputpath, filename);
+			filemanager.readsortedfile(temppath);
+			filemanager.writetooutput(outputpath, filename, outputstring);
+			filemanager.deletetemp(temppath);
+		}
+
 	};
 }
