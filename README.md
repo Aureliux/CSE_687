@@ -18,7 +18,7 @@ FileManager Class: Used to open files, read files, create files, and delete file
 
 Mapper Class: Receives a string from Workflow, splits every word, and appends a "1" to each word. A buffer of preset size is used to periodically write to the mapped file in the temporary directory.
 
-Sorter Class: Receives a string vector, sorts the vector in alphabetical order, and then sends it to the Reducer class.
+Sorter Class: Reads a string vector from the mapped file, sorts the vector in alphabetical order, and then sends it to the Reducer class.
 
 Reducer Class: Deletes repeated words and appends a "1" to the original word to count how many times it was repeated.
 
