@@ -7,10 +7,4 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include "../Project_1/Workflow.h"
-#include "../Project_1/FileManager.h"
-#include "../Project_1/Mapper.h"
-#include "../Project_1/Sorter.h"
-#include "../Project_1/Reducer.h"
-
 #endif //PCH_H
