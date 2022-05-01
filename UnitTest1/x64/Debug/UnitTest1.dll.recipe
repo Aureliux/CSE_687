@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\Project_1.exe</FullPath>
+      <FullPath>C:\Users\Joann\Documents\GitHub\CSE_687\Project_1\x64\Debug\Project_1.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\UnitTest1.dll</FullPath>
+      <FullPath>C:\Users\Joann\Documents\GitHub\CSE_687\Project_1\x64\Debug\UnitTest1.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
