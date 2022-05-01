@@ -1,4 +1,5 @@
 ﻿  test.cpp
 C:\Users\Joann\Documents\GitHub\CSE_687\Project_1\Reducer.cpp(7,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Joann\Documents\GitHub\CSE_687\Project_1\Reducer.cpp(12,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joann\Documents\GitHub\CSE_687\g_test\test.cpp(60,14): warning C4101: 'filemanager': unreferenced local variable
   g_test.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Project_1\x64\Debug\g_test.exe
