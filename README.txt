@@ -6,8 +6,9 @@ C++17 - Needed to include the "filesystem" library used by the FileManager class
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
+
 Summary:
-This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare their methods and include files.
+This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare their methods and include files. The program will prompt user to enter 3 path. The first is the input files path, the second is thr intermediate output files, the last is the output files path.
 
 Program Contains the Following Classes:
 
