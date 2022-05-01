@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include <istream>
+#include "..\Project_1\Workflow.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -14,8 +14,10 @@ namespace Project1Test
 		
 		TEST_METHOD(TestMethod1)
 		{
-			std::in >> 
-			Assert::
+			std::string input = "c:\\User\\aturel\\source\\repos\\CSE_687\\Input.txt";
+			std::string temp = "c:\\User\\aturel\\source\\repos\\CSE_687\\Input.txt";
+			std::string output = "c:\\User\\aturel\\source\\repos\\CSE_687\\Input.txt";
+			Workflow.workflow( input, temp, output );
 		}
 	};
 }

@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  UnitTest1.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(700,5): error MSB6006: "CL.exe" exited with code 2.
+C:\Users\Joann\Documents\GitHub\CSE_687\UnitTest1\UnitTest1.cpp(20,12): error C2059: syntax error: '.'
