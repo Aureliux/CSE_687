@@ -1,4 +1,4 @@
-﻿  pch.cpp
-  UnitTest1.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(700,5): error MSB6006: "CL.exe" exited with code 2.
-C:\Users\Joann\Documents\GitHub\CSE_687\UnitTest1\UnitTest1.cpp(20,12): error C2059: syntax error: '.'
+﻿  UnitTest1.cpp
+C:\Users\aurel\source\repos\CSE_687\Project_1\Reducer.cpp(7,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\aurel\source\repos\CSE_687\Project_1\Reducer.cpp(12,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  UnitTest1.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_1\x64\Debug\UnitTest1.dll
