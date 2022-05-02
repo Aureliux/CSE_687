@@ -1,3 +1,9 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 1
+//File Management Class
+//Omar Vargas, Joanna
+
 #include "FileManager.h"
 
 // Read all the text files in the input directory and save each line to vector.

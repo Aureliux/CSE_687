@@ -1,3 +1,8 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 1
+//Workflow Class
+//Omar Vargas, Joanna
 #pragma once
 #include "FileManager.h"
 #include "Mapper.h"

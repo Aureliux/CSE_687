@@ -1,3 +1,8 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 1
+//Sorting Class
+//Omar Vargas, Joanna
 #include "Sorter.h"
 
 FileManager filehandler;

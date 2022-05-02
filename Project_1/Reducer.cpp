@@ -1,3 +1,8 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 1
+//Reduce Class
+//Omar Vargas, Joanna
 #include "Reducer.h"
 
 // Deletes repeated words and appends a "1" to the original word to count how many times it was repeated. Then, returns a final reduced string.

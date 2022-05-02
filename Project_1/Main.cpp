@@ -1,3 +1,8 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 1
+//Main.cpp
+//Omar Vargas, Joanna
 #include <iostream>
 #include <string>
 #include "Workflow.h"
