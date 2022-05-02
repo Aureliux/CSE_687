@@ -2,7 +2,7 @@
 //CSE 687 Object Oriented Design
 //Project 1
 //Main.cpp
-//Omar Vargas, Joanna
+//Omar Vargas, Huiying Wu
 #include <iostream>
 #include <string>
 #include "Workflow.h"

@@ -2,7 +2,7 @@
 //CSE 687 Object Oriented Design
 //Project 1
 //Workflow Class
-//Omar Vargas, Joanna
+//Omar Vargas, Huiying Wu
 #pragma once
 #include "FileManager.h"
 #include "Mapper.h"

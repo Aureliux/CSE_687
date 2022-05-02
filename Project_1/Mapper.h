@@ -2,7 +2,7 @@
 //CSE 687 Object Oriented Design
 //Project 1
 //Map Class
-//Omar Vargas, Joanna
+//Omar Vargas, Huiying Wu
 #pragma once
 #include <iostream>
 #include <string>

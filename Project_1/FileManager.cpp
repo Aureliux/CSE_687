@@ -2,7 +2,7 @@
 //CSE 687 Object Oriented Design
 //Project 1
 //File Management Class
-//Omar Vargas, Joanna
+//Omar Vargas, Huiying Wu
 
 #include "FileManager.h"
 
