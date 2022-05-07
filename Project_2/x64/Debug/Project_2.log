@@ -1,0 +1,10 @@
+﻿  FileManager.cpp
+  Main.cpp
+  Mapper.cpp
+  Reducer.cpp
+C:\Users\aurel\source\repos\CSE_687\Project_2\Reducer.cpp(12,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\aurel\source\repos\CSE_687\Project_2\Reducer.cpp(17,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Sorter.cpp
+  Workflow.cpp
+  Generating Code...
+  Project_2.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_2\x64\Debug\Project_2.exe
