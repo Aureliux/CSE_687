@@ -3,15 +3,18 @@
 //Project 1
 //Map Class
 //Omar Vargas, Huiying Wu
+
+#include "framework.h"
+#include "pch.h"
 #include "Mapper.h"
 
-FileManager filemanager;
-int buffer_size = 30;
+// FileManager filemanager;
+// int buffer_size = 30;
 vector<string> map_v;
 
 /*	Receives a temporary directory path and text line and returns a modified string containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
-void Mapper::map(string temppath, string fileline)
+MAPPERDLL_API vector<string> map(string temppath, string fileline)
 {
 	string currentword, cleanstring, mappedstring;
 	vector<string> mappedfile;
@@ -57,20 +60,22 @@ void Mapper::map(string temppath, string fileline)
 
 	// Send the mapped lines to a string vector based on a preset buffer size.
 	map_v.push_back(mappedstring);
-	if (map_v.size() == buffer_size){
-		export_map(temppath, map_v);
-		map_v.clear();
-	}
+	//if (map_v.size() == buffer_size){
+	//	export_map(temppath, map_v);
+	//	map_v.clear();
+	//}
+
+	return map_v;
 }
 
-// Send the leftover buffer lines to the mapped string vector.
-void Mapper::leftoverfrombuff(string temppath){
-	export_map(temppath, map_v);
-}
-
-// Write the mapped string vector into a file in the temporary directory.
-void Mapper::export_map(string temppath, vector<string> str_v){
-	for (int i = 0; i < str_v.size(); i++){
-		filemanager.writetotemp(temppath, str_v[i]);
-	}
-}
+//// Send the leftover buffer lines to the mapped string vector.
+//MAPPERDLL_API void leftoverfrombuff(string temppath){
+//	export_map(temppath, map_v);
+//}
+//
+//// Write the mapped string vector into a file in the temporary directory.
+//MAPPERDLL_API void export_map(string temppath, vector<string> str_v){
+//	for (int i = 0; i < str_v.size(); i++){
+//		filemanager.writetotemp(temppath, str_v[i]);
+//	}
+//}

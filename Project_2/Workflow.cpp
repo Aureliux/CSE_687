@@ -12,7 +12,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	Mapper mapper;
 	Sorter sorter;
 	Reducer reducer;
-	vector<string> filetext, mappedfile, sortedtext, reducedstring;
+	vector<string> filetext, mappedfile, sortedtext, reducedstring, map_v;
 	string fileline, mappedstring;
 
 	// Read text files from the input directory, send each line to the mapper, and return a mapped string to the temporary directory.
@@ -23,9 +23,11 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	filemanager.createtempfile(temppath);
 	for (int i = 0; i < filetext.size(); i++) {
 		fileline = filetext[i];
-		mapper.map(temppath, fileline);
+		map_v = mapper.map(temppath, fileline);
+		filemanager.export_map(temppath, map_v);
 	}
-	mapper.leftoverfrombuff(temppath);
+	// map_v = ;
+	mapper.leftoverfrombuff(temppath, map_v);
 
 	// Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(temppath);

@@ -5,9 +5,7 @@
 //Omar Vargas, Huiying Wu
 #pragma once
 #include "FileManager.h"
-#include "Mapper.h"
 #include "Sorter.h"
-#include "Reducer.h"
 #include <string>
 using namespace std;
 

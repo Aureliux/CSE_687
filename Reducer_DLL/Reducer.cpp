@@ -3,10 +3,13 @@
 //Project 1
 //Reduce Class
 //Omar Vargas, Huiying Wu
+
+#include "framework.h"
+#include "pch.h"
 #include "Reducer.h"
 
 // Deletes repeated words and appends a "1" to the original word to count how many times it was repeated. Then, returns a final reduced string.
-vector<string> Reducer::reduce(vector<string> sortedtext){
+REDUCERDLL_API vector<string> reduce(vector<string> sortedtext){
 	
 	for (int i = 0; i < sortedtext.size(); i++){
 		int v_size = sortedtext.size();

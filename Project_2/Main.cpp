@@ -6,8 +6,11 @@
 #include <iostream>
 #include <string>
 #include "Workflow.h"
+#include "windows.h"
 using namespace std;
 
+typedef vector<string> map(string, string);
+typedef vector<string> reduce(string, string);
 int main(void){
 	
 	string inputpath, temppath, outputpath;

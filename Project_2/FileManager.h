@@ -30,4 +30,7 @@ public:
 	void writetooutput(string pathway, string filename, string outputstring); // Write to output file.
 
 	void deletetemp(string pathway); // Delete temporary file and sorted file after the final result is saved to the output file.
+
+	void leftoverfrombuff(string temppath, vector<string> map_v); // Send the leftover buffer lines to the mapped string vector.
+	void export_map(string temppath, vector<string> str_v); // Write the mapped string vector into a file in the temporary directory.
 };

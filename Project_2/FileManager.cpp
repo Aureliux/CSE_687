@@ -132,3 +132,15 @@ void FileManager::deletetemp(string pathway) {
 	remove(pathway + "\\tempfile.txt");
 	remove(pathway + "\\sorted.txt");
 }
+
+// Send the leftover buffer lines to the mapped string vector.
+void FileManager::leftoverfrombuff(string temppath, vector<string> map_v) {
+	export_map(temppath, map_v);
+}
+
+// Write the mapped string vector into a file in the temporary directory.
+void FileManager::export_map(string temppath, vector<string> str_v) {
+	for (int i = 0; i < str_v.size(); i++) {
+		writetotemp(temppath, str_v[i]);
+	}
+}
