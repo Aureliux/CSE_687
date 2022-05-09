@@ -1,0 +1,9 @@
+﻿  Reducer.cpp
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.h(19,42): error C2526: 'reduce': C linkage function cannot return C++ class 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.h(19): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(12,64): error C2556: 'std::vector<std::string,std::allocator<std::string>> reduce(std::vector<std::string,std::allocator<std::string>>)': overloaded function differs only by return type from 'void reduce(std::vector<std::string,std::allocator<std::string>>)'
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.h(19): message : see declaration of 'reduce'
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(12,31): error C2371: 'reduce': redefinition; different basic types
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.h(19): message : see declaration of 'reduce'
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(15,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(20,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data

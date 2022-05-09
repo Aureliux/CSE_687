@@ -1,17 +1,21 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 2
 //Main.cpp
 //Omar Vargas, Huiying Wu
+
 #include <iostream>
 #include <string>
 #include "Workflow.h"
 #include "windows.h"
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
 int main(void){
 	
-	string inputpath, temppath, outputpath;
+	string inputpath, temppath, outputpath, dllpath;
 	Workflow workflow;
 
 	// Prompt user to designate the input, temporary, and output directories.
@@ -21,6 +25,8 @@ int main(void){
 	getline(cin, temppath);
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
+	cout << "Please enter DLL file path:" << endl;
+	getline(cin, dllpath);
 
 	// Call Workflow class and pass the user-designated file paths.
 	workflow.workflow(inputpath, temppath, outputpath);

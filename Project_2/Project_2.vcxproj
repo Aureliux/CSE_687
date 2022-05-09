@@ -154,15 +154,11 @@ xcopy /y /d "..\Reducer_DLL\$(IntDir)Reducer_DLL.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Mapper.cpp" />
-    <ClCompile Include="Reducer.cpp" />
     <ClCompile Include="Sorter.cpp" />
     <ClCompile Include="Workflow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
-    <ClInclude Include="Mapper.h" />
-    <ClInclude Include="Reducer.h" />
     <ClInclude Include="Sorter.h" />
     <ClInclude Include="Workflow.h" />
   </ItemGroup>

@@ -1,13 +1,16 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 2
 //Workflow Class
 //Omar Vargas, Huiying Wu
+
 #pragma once
 #include "FileManager.h"
 #include "Sorter.h"
 #include <string>
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 class Workflow
 {

@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 2
 //File Management Class
 //Omar Vargas, Huiying Wu
 
@@ -10,7 +10,12 @@
 #include <string>
 #include <vector>
 #include <filesystem>
-using namespace std;
+using std::string;
+using std::vector;
+using std::fstream;
+using std::ifstream;
+using std::cout;
+using std::endl;
 using namespace std::filesystem;
 
 class FileManager

@@ -1,8 +1,9 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 2
 //Sorting Class
 //Omar Vargas, Huiying Wu
+
 #include "Sorter.h"
 
 FileManager filehandler;

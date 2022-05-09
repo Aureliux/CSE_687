@@ -1,8 +1,9 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 2
 //Workflow Class
 //Omar Vargas, Huiying Wu
+
 #include "Workflow.h"
 #include "windows.h"
 
@@ -14,10 +15,10 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 {
 	HINSTANCE hDLL1;
 	HINSTANCE hDLL2;
-	funcmap map;
-	funcreduce reduce;
-	const wchar_t* libName1 = L"Mapper_DLL";
-	const wchar_t* libName2 = L"Reducer_DLL";
+	funcmap map = nullptr;
+	funcreduce reduce = nullptr;
+	const wchar_t* libName1 = L"MAPPER_DLL";
+	const wchar_t* libName2 = L"REDUCER_DLL";
 
 	hDLL1 = LoadLibraryEx(libName1, NULL, NULL);
 	hDLL2 = LoadLibraryEx(libName2, NULL, NULL);

@@ -14,7 +14,7 @@ vector<string> map_v;
 
 /*	Receives a temporary directory path and text line and returns a modified string containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
-MAPPERDLL_API vector<string> map(string temppath, string fileline)
+vector<string> map(string temppath, string fileline)
 {
 	string currentword, cleanstring, mappedstring;
 	vector<string> mappedfile;
