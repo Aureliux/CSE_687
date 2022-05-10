@@ -1,9 +1,8 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 1
 //Sorting Class
 //Omar Vargas, Huiying Wu
-
 #pragma once
 #include "FileManager.h"
 #include <algorithm>

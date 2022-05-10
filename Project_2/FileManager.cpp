@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 1
 //File Management Class
 //Omar Vargas, Huiying Wu
 
@@ -18,11 +18,12 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	directory_iterator b(pathway), e;
 	vector<path> txt_file(b, e);
 	ifstream opentxt;
-	for (int i = 0; i < txt_file.size(); i++){
+	for (int i = 0; i < txt_file.size(); i++) {
 		opentxt.open(txt_file[i]);
 		if (opentxt) {
-			while (getline(opentxt, line)){
-				txtdata.push_back(line); //Push each line from the text file to a vector to pass to the Mapper.
+			while (getline(opentxt, line)) {
+				if (!line.empty())
+					txtdata.push_back(line); //Push each line from the text file to a vector to pass to the Mapper.
 			}
 		}
 		opentxt.close();
@@ -39,15 +40,6 @@ void FileManager::createtempfile(string pathway) {
 		cout << "File Create Fail!" << endl;
 		exit(EXIT_FAILURE);
 	}
-	tempfile.close();
-}
-
-// Write to temporary file for the Mapper class.
-void FileManager::writetotemp(string pathway, string mappedstring) {
-	fstream tempfile;
-
-	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::app);
-	tempfile << mappedstring << endl; //Will accept a string line from mapper to write out to temp file.
 	tempfile.close();
 }
 
@@ -118,10 +110,9 @@ vector<string> FileManager::readsortedfile(string pathway) {
 	return sorteddata;
 }
 
-// Write to output file.
+//Write to output file.
 void FileManager::writetooutput(string pathway, string filename, string outputstring) {
 	fstream outputfile;
-
 	outputfile.open(pathway + filename, std::ios_base::app);
 	outputfile << outputstring << endl;
 	outputfile.close();
@@ -131,16 +122,4 @@ void FileManager::writetooutput(string pathway, string filename, string outputst
 void FileManager::deletetemp(string pathway) {
 	remove(pathway + "\\tempfile.txt");
 	remove(pathway + "\\sorted.txt");
-}
-
-// Send the leftover buffer lines to the mapped string vector.
-void FileManager::leftoverfrombuff(string temppath, vector<string> map_v) {
-	export_map(temppath, map_v);
-}
-
-// Write the mapped string vector into a file in the temporary directory.
-void FileManager::export_map(string temppath, vector<string> str_v) {
-	for (int i = 0; i < str_v.size(); i++) {
-		writetotemp(temppath, str_v[i]);
-	}
 }

@@ -3,7 +3,6 @@
 //Project 2
 //Sorting Class
 //Omar Vargas, Huiying Wu
-
 #include "Sorter.h"
 
 FileManager filehandler;

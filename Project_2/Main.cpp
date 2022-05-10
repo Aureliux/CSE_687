@@ -3,19 +3,18 @@
 //Project 2
 //Main.cpp
 //Omar Vargas, Huiying Wu
-
 #include <iostream>
 #include <string>
 #include "Workflow.h"
-#include "windows.h"
+
+using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
-using std::string;
 
-int main(void){
-	
-	string inputpath, temppath, outputpath, dllpath;
+int main(void) {
+
+	string inputpath, temppath, outputpath;
 	Workflow workflow;
 
 	// Prompt user to designate the input, temporary, and output directories.
@@ -25,10 +24,9 @@ int main(void){
 	getline(cin, temppath);
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
-	cout << "Please enter DLL file path:" << endl;
-	getline(cin, dllpath);
 
 	// Call Workflow class and pass the user-designated file paths.
 	workflow.workflow(inputpath, temppath, outputpath);
 
+	return 0;
 }
