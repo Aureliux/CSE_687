@@ -14,7 +14,7 @@ vector<string> map_v;
 
 /*	Receives a temporary directory path and text line and returns a modified string containing
 	a key-value pair of each word in the file followed by a count of 1.	*/
-vector<string> map(string temppath, string fileline)
+vector<string>* map(string temppath, string fileline)
 {
 	string currentword, cleanstring, mappedstring;
 	vector<string> mappedfile;
@@ -65,7 +65,7 @@ vector<string> map(string temppath, string fileline)
 	//	map_v.clear();
 	//}
 
-	return map_v;
+	return &map_v;
 }
 
 //// Send the leftover buffer lines to the mapped string vector.

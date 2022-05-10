@@ -8,7 +8,7 @@
 #include "windows.h"
 
 typedef vector<string> (*funcmap)(string, string);
-typedef vector<string> (*funcreduce)(string, string);
+typedef vector<string> (*funcreduce)(vector<string>);
 
 // Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
 void Workflow::workflow(string inputpath, string temppath, string outputpath)

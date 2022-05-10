@@ -1,3 +1,7 @@
 ﻿  Mapper.cpp
-     Creating library C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.lib and object C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.exp
-  Mapper_DLL.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.dll
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.h(19,41): error C2526: 'map': C linkage function cannot return C++ class 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.h(19): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.cpp(18,1): error C2556: 'std::vector<std::string,std::allocator<std::string>> map(std::string,std::string)': overloaded function differs only by return type from 'void map(std::string,std::string)'
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.h(19): message : see declaration of 'map'
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.cpp(17,16): error C2371: 'map': redefinition; different basic types
+C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\Mapper.h(19): message : see declaration of 'map'

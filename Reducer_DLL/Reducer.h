@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-using namespace std;
+using std::string;
+using std::vector;
 
 extern "C" REDUCERDLL_API vector<string>* reduce(vector<string> sortedtext); // Deletes repeated wordsand appends a "1" to the original word to count how many times it was repeated.
