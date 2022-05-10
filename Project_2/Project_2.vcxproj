@@ -122,8 +122,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.lib;C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.lib\$(IntDir);C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MAPLIBRARY.lib;REDUCELIBARY.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Joann\Documents\GitHub\CSE_687\MAPLIBRARY\x64\Debug;C:\Users\Joann\Documents\GitHub\CSE_687\REDUCELIBRARY\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\Mapper_DLL\$(IntDir)Mapper_DLL.dll" "$(OutDir)"
@@ -145,8 +145,8 @@ xcopy /y /d "..\Reducer_DLL\$(IntDir)Reducer_DLL.dll" "$(OutDir)"</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.lib;C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\aurel\source\repos\CSE_687\Mapper_DLL\x64\Debug\Mapper_DLL.lib\$(IntDir);C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MAPLIBRARY.lib;REDUCELIBARY.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Joann\Documents\GitHub\CSE_687\MAPLIBRARY\x64\Debug;C:\Users\Joann\Documents\GitHub\CSE_687\REDUCELIBRARY\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\Mapper_DLL\$(IntDir)Mapper_DLL.dll" "$(OutDir)"

@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  dllmain.cpp
+  MapLibrary.cpp
+C:\Users\Joann\Documents\GitHub\CSE_687\MAPLIBRARY\MapLibrary.cpp(13,7): warning C4101: 'letter': unreferenced local variable
+  Generating Code...
+     Creating library C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\MAPLIBRARY.lib and object C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\MAPLIBRARY.exp
+  MAPLIBRARY.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\MAPLIBRARY.dll

@@ -1,6 +1,1 @@
-﻿  FileManager.cpp
-  Main.cpp
-  Sorter.cpp
-  Workflow.cpp
-  Generating Code...
-LINK : fatal error LNK1104: cannot open file 'C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib'
+﻿LINK : fatal error LNK1104: cannot open file 'MAPLIBRARY.lib'
