@@ -1,5 +1,6 @@
 05/07/2022 (Zoom Meeting)
 Omar and Huiying followed the professor's instruction sheet for setting up DLLs. Created two DLLs (Mapper_DLL and Reducer_DLL) and set up the configuration references. Spent some time removing the FileManager association from the original Mapper implementation so that DLLs can be independently called. Build issues at the end of the day related to using namespace std.
 
+
 05/08/2022 (Zoom Meeting)
 Omar and Huiying continued implementing the DLLs. Resolved the using namespace std by importing individual std libraries as needed. Faced multiple variable incompatible issues with the extern "C" declarations so it was changed to extern "C++". Built the solution succesfully but the DLLs are still not returning the desired output.
