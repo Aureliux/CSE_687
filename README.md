@@ -37,6 +37,7 @@ C++17 - Needed to include the "filesystem" library used by the FileManager class
 
 boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `General` > `Additional Include Directories` > add path to boost file.<br>
+
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
 
 
