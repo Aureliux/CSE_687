@@ -12,8 +12,11 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	string line;
 
 	path txtstr(pathway);
-	if (!exists(txtstr))
-		exit(EXIT_FAILURE);
+	while (!exists(txtstr)) {
+		cout << "The directory you enter does not exist, please re-enter:" << endl;
+		getline(cin, pathway);
+		path txtstr(pathway);
+	}
 	directory_entry entry(txtstr);
 	directory_iterator b(pathway), e;
 	vector<path> txt_file(b, e);
@@ -36,9 +39,11 @@ void FileManager::createtempfile(string pathway) {
 	fstream tempfile;
 
 	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out); //Create temp file to stored data.
-	if (!tempfile) {
-		cout << "File Create Fail!" << endl;
-		exit(EXIT_FAILURE);
+	while (!tempfile) {
+		cout << "The directory you enter does not exist, please re-enter:" << endl;
+		getline(cin, pathway);
+		tempfile.clear();
+		tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out);
 	}
 	tempfile.close();
 }
@@ -49,7 +54,7 @@ void FileManager::createsortedfile(string pathway) {
 
 	tempfile.open(pathway + "\\sorted.txt", std::ios_base::out);
 	if (!tempfile)
-		cout << "File Create Fail!" << endl;
+		cout << "Sorting File Create Fail!" << endl;
 	tempfile.close();
 }
 
@@ -86,8 +91,12 @@ void FileManager::createoutputfile(string pathway, string filename) {
 	fstream outputfile;
 
 	outputfile.open(pathway + filename, std::ios_base::out);
-	if (!outputfile)
-		cout << "File Create Fail!" << endl;
+	while (!outputfile) {
+		cout << "The directory you enter does not exist, please re-enter:" << endl;
+		getline(cin, pathway);
+		outputfile.clear();
+		outputfile.open(pathway + filename, std::ios_base::out);
+	}
 	outputfile.close();
 }
 

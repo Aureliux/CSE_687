@@ -16,6 +16,7 @@ using std::string;
 using std::vector;
 using std::ifstream;
 using std::fstream;
+using std::cin;
 using std::cout;
 using std::endl;
 
