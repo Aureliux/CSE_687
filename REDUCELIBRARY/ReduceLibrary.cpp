@@ -1,6 +1,13 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 2
+//ReduceLibrary DLL
+//Omar Vargas, Huiying Wu
+
 #include "pch.h"
 #include "framework.h"
 #include "ReduceLibrary.h"
+
 void reduce(string outputpath, vector<string> sortedtext)
 {
 	for (int i = 0; i < sortedtext.size(); i++) {

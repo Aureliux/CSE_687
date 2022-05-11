@@ -1,3 +1,9 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 2
+//MapLibrary DLL
+//Omar Vargas, Huiying Wu
+
 #include "pch.h"
 #include "framework.h"
 #include "MapLibrary.h"

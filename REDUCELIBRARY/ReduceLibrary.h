@@ -1,3 +1,9 @@
+//Syracuse University
+//CSE 687 Object Oriented Design
+//Project 2
+//ReduceLibrary DLL
+//Omar Vargas, Huiying Wu
+
 #pragma once
 
 #ifdef REDUCELIBRARY_EXPORTS
@@ -17,4 +23,4 @@ using std::fstream;
 
 extern "C" REDUCELIBRARY_API void reduce(string outputpath, vector<string> sortedtext); /* Deletes repeated words and appends a "1" to the
 																						original word to count how many times it was repeated.*/
-extern "C" REDUCELIBRARY_API void export_reduce(string outputpath, vector<string> sortedtext);
+void export_reduce(string outputpath, vector<string> sortedtext);

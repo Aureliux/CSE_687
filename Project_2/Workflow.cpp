@@ -3,6 +3,7 @@
 //Project 2
 //Workflow Class
 //Omar Vargas, Huiying Wu
+
 #include "Workflow.h"
 
 FileManager filemanager;

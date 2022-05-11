@@ -1,9 +1,9 @@
-#pragma once
 //Syracuse University
 //CSE 687 Object Oriented Design
 //Project 2
 //Workflow Class
 //Omar Vargas, Huiying Wu
+
 #pragma once
 #include "Sorter.h"
 #include "FileManager.h"
