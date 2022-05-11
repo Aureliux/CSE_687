@@ -51,3 +51,20 @@ This is a MapReduce program that takes in a set of text files from an input fold
 
 The program will prompt the user to enter 3 paths. The first is the `input files path`, the second is the `intermediate output files`, and the last is the `output files path`.
 
+Program Contains the Following Classes:
+
+Main - Prompts the user to designate input folder, temporary folder, and output folder. Then, it sends those folder paths to the Workflow class.
+
+Workflow Class - Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
+
+FileManager Class: Used to open files, read files, create files, and delete files in the folders designated by the user.
+
+Sorter Class: Reads a string vector from the mapped file, sorts the vector in alphabetical order, and creates a sorted file in the temporary directory.
+
+Program Contains the Following DLL:
+
+Map DLL: Receives a string from Workflow, splits every word, and appends a "1" to each word. A buffer of preset size is used to periodically write to the mapped file in the temporary directory.
+
+Reduce DLL: Deletes repeated words and append a "1" to the original word to count how many times it was repeated. Then, returns a final reduced string.
+
+Results: The final output text file will be a reduced file containing one word per line in alphabetical order followed by a "1" for each time that specific word was repeated. A separate success file is also created in the output directory to mark the completion of the Map-Reduce program.
