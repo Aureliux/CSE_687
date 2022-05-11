@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MAPLIBRARY", "..\MAPLIBRARY
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "REDUCELIBRARY", "..\REDUCELIBRARY\REDUCELIBRARY.vcxproj", "{39389B25-9387-451A-83D5-5DFAE71C734F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project 2 - Unit Testing", "..\Project 2 - Unit Testing\Project 2 - Unit Testing.vcxproj", "{520E7E9C-AE99-44BB-8477-4F97C467DE40}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project 2 - Unit Testing", "..\Unit Testing - Project 2\Project 2 - Unit Testing.vcxproj", "{520E7E9C-AE99-44BB-8477-4F97C467DE40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
