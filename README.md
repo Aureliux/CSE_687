@@ -5,7 +5,7 @@ Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 * ### Project 1
 
 Requirements to Run:
-C++17 - Needed to include the "filesystem" library used by the FileManager class.
+*C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
@@ -30,3 +30,11 @@ Reducer Class: Deletes repeated words and append a "1" to the original word to c
 Results:
 The final output text file will be a reduced file containing one word per line in alphabetical order followed by a "1" for each time that specific word was repeated.
 A separate success file is also created in the output directory to mark the completion of the Map-Reduce program.
+
+
+* ### Project 2
+
+Requirements to Run:
+*C++17 - Needed to include the "filesystem" library used by the FileManager class.
+In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
+Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
