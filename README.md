@@ -5,8 +5,7 @@ Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 * ### Project 1
 
 Requirements to Run:<br>
-C++17 - Needed to include the "filesystem" library used by the FileManager class.
-In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
+C++17 - Needed to include the "filesystem" library used by the FileManager class. In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
 
@@ -37,6 +36,7 @@ A separate success file is also created in the output directory to mark the comp
 * ### Project 2
 
 Requirements to Run:<br>
-C++17 - Needed to include the "filesystem" library used by the FileManager class.<br>
-In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.<br>
+C++17 - Needed to include the "filesystem" library used by the FileManager class. In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
+boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `General` > `Additional Include Directories` > add path to boost file.<br>
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
+
