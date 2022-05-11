@@ -1,5 +1,0 @@
-﻿  Reducer.cpp
-C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(15,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\Reducer.cpp(20,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-     Creating library C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.lib and object C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.exp
-  Reducer_DLL.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Reducer_DLL\x64\Debug\Reducer_DLL.dll
