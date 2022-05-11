@@ -2,8 +2,8 @@ CSE_687 - Object-Oriented Design<br>
 =
 Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 -
-Project 1
-=
+###Project 1
+
 Requirements to Run:
 C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
