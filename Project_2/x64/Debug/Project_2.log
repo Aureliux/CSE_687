@@ -1,1 +1,10 @@
-﻿LINK : fatal error LNK1104: cannot open file 'MAPLIBRARY.lib'
+﻿  FileManager.cpp
+  Main.cpp
+  Sorter.cpp
+  Workflow.cpp
+  Generating Code...
+  Project_2.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_2\x64\Debug\Project_2.exe
+  ..\Mapper_DLL\x64\Debug\Mapper_DLL.dll
+  1 File(s) copied
+  ..\Reducer_DLL\x64\Debug\Reducer_DLL.dll
+  1 File(s) copied
