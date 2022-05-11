@@ -7,6 +7,7 @@
 Requirements to Run:<br>
 C++17 - Needed to include the "filesystem" library used by the FileManager class.
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
+
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
 Summary:<br>
