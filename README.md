@@ -1,4 +1,5 @@
-CSE_687 - Object-Oriented Design - Project 1
+CSE_687 - Object-Oriented Design<br>
+Project 1
 =
 Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 -
