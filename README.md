@@ -5,13 +5,15 @@ Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 * ### Project 1
 
 Requirements to Run:
-* C++17 - Needed to include the "filesystem" library used by the FileManager class.
+C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
 
 Summary:
-This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. The program will prompt the user to enter 3 paths. The first is the input files path, the second is the intermediate output files, and the last is the output files path.
+This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. 
+
+The program will prompt the user to enter 3 paths. The first is the `input files path`, the second is the `intermediate output files`, and the last is the `output files path`.
 
 Program Contains the Following Classes:
 
@@ -35,6 +37,6 @@ A separate success file is also created in the output directory to mark the comp
 * ### Project 2
 
 Requirements to Run:
-* C++17 - Needed to include the "filesystem" library used by the FileManager class.
+C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
