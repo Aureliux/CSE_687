@@ -2,18 +2,20 @@ CSE_687 - Object-Oriented Design<br>
 =
 Omar Vargas (Github ID: Aureliux), Huiying Wu (Github ID: jowu58)
 -
-### * Project 1
+* ### Project 1
 
-Requirements to Run:
+Requirements to Run:<br>
 C++17 - Needed to include the "filesystem" library used by the FileManager class.
 In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
 Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
 
 
-Summary:
-This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. The program will prompt the user to enter 3 paths. The first is the input files path, the second is the intermediate output files, and the last is the output files path.
+Summary:<br>
+This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. 
 
-Program Contains the Following Classes:
+The program will prompt the user to enter 3 paths. The first is the `input files path`, the second is the `intermediate output files`, and the last is the `output files path`.
+
+Program Contains the Following Classes:<br>
 
 Main - Prompts the user to designate input folder, temporary folder, and output folder. Then, it sends those folder paths to the Workflow class.
 
@@ -30,3 +32,11 @@ Reducer Class: Deletes repeated words and append a "1" to the original word to c
 Results:
 The final output text file will be a reduced file containing one word per line in alphabetical order followed by a "1" for each time that specific word was repeated.
 A separate success file is also created in the output directory to mark the completion of the Map-Reduce program.
+
+
+* ### Project 2
+
+Requirements to Run:<br>
+C++17 - Needed to include the "filesystem" library used by the FileManager class.
+In Visual Studio, go to Project > Properties > Configuration Properties > C/C++ > Language > C++ Language Standard > ISO C++17 Standard.
+Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
