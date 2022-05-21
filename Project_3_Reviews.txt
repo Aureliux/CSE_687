@@ -1,0 +1,2 @@
+05/21/2022 (Zoom Meeting)
+Brainstormed multiple ideas in how to implement the threads. Determined that we need to do a bit more learning in how threads work before starting coding.
