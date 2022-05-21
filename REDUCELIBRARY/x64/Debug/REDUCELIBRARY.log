@@ -1,9 +1,1 @@
-﻿  pch.cpp
-  ReduceLibrary.cpp
-C:\Users\Joann\Documents\GitHub\CSE_687\REDUCELIBRARY\ReduceLibrary.cpp(14,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Joann\Documents\GitHub\CSE_687\REDUCELIBRARY\ReduceLibrary.cpp(19,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  dllmain.cpp
-  Generating Code...
-  LINK : C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\REDUCELIBRARY.dll not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\REDUCELIBRARY.lib and object C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\REDUCELIBRARY.exp
-  REDUCELIBRARY.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Project_2\x64\Debug\REDUCELIBRARY.dll
+﻿  REDUCELIBRARY.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_3\x64\Debug\REDUCELIBRARY.dll
