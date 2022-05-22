@@ -13,10 +13,19 @@ typedef void (*funcMap)(string, string);
 typedef void (*funcLeftoverfrombuff)(string);
 typedef void (*funcReduce)(string, vector<string>);
 
+// Splits input into R buckets
+int Workflow::partition(string inputpath)
+{
+	int R = 0;
 
+	// Call filemanager and read how many files are in inputpath.
+	// Split number of files into R buckets.
+
+	return R;
+}
 
 // Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
-void Workflow::workflow(string inputpath, string temppath, string outputpath)
+void Workflow::mapworkflow(string inputpath, string temppath, int R)
 {
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
 	string fileline, mappedstring;
@@ -48,7 +57,13 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	else {
 		std::cout << "Map Library load failed!" << std::endl;
 	}
+}
 
+void Workflow::reduceworkflow(string temppath, string outputpath)
+{
+	vector<string> filetext, mappedfile, sortedtext, reducedstring;
+	string fileline, mappedstring;
+	
 	//Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(temppath);
 

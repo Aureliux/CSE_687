@@ -17,6 +17,16 @@ using std::cout;
 class Workflow
 {
 public:
-	void workflow(string inputpath, string temppath, string outputpath); /* Calls the FileManager class to handle file operations and the Mapper,
-																			Sorter, and Reducer classes to handle the modification algorithms. */
+	
+	/* Splits input into R buckets */
+	int partition(string inputpath);
+	
+	/* Each thread calls the FileManager class to handle file operations and
+	the Mapper DLL to handle the mapping algorithms. */
+	void mapworkflow(string inputpath, string temppath, int R);
+
+	/* Each thread calls the FileManager class to handle file operations and
+	the Sorter followed by the Reducer DLL to handle the reducing algorithms. */
+	void reduceworkflow(string temppath, string outputpath);	
+
 };

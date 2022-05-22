@@ -7,16 +7,20 @@
 #include <iostream>
 #include <string>
 #include "Workflow.h"
+#include <thread>
 
 using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::thread;
 
 int main(void) {
 
 	string inputpath, temppath, outputpath;
 	Workflow workflow;
+	int R;
+	
 
 	// Prompt user to designate the input, temporary, and output directories.
 	cout << "Please enter input file path:" << endl;
@@ -26,8 +30,18 @@ int main(void) {
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
 
-	// Call Workflow class and pass the user-designated file paths.
-	workflow.workflow(inputpath, temppath, outputpath);
+
+	R = workflow.partition(inputpath);
+	vector<thread> threads;
+
+	for (int i = 0; i <= R; i++)
+	{
+		threads[i];
+	}
+	
+	workflow.mapworkflow(inputpath, temppath, R);
+
+	workflow.reduceworkflow(temppath, outputpath);
 
 	return 0;
 }
