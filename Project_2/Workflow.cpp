@@ -13,7 +13,7 @@ typedef void (*funcMap)(string, string);
 typedef void (*funcLeftoverfrombuff)(string);
 typedef void (*funcReduce)(string, vector<string>);
 
-// Splits input into R buckets
+// Splits input into R buckets and returns the R value.
 int Workflow::partition(string inputpath)
 {
 	int R = 0;

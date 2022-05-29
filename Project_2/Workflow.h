@@ -18,7 +18,7 @@ class Workflow
 {
 public:
 	
-	/* Splits input into R buckets */
+	/* Splits input into R buckets and returns the R value. */
 	int partition(string inputpath);
 	
 	/* Each thread calls the FileManager class to handle file operations and
