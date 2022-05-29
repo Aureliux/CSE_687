@@ -9,8 +9,8 @@
 FileManager filemanager;
 Sorter sorter;
 
-typedef void (*funcMap)(string, string);
-typedef void (*funcLeftoverfrombuff)(string);
+typedef void (*funcMap)(string, string, string);
+typedef void (*funcLeftoverfrombuff)(string, string);
 typedef void (*funcReduce)(string, vector<string>);
 
 
@@ -23,10 +23,11 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 
 	// Read text files from the input directory, send each line to the mapper, and return a mapped string to the temporary directory.
 	filetext = filemanager.opentxtfile(inputpath);
+	int numoffile = filemanager.numberoffile(inputpath);
 	cout << "*******************" << endl;
 	cout << "...Reading Files..." << endl;
 	cout << "*******************" << endl << endl;
-	filemanager.createtempfile(temppath);
+	filemanager.createtempfile(temppath, "temp.txt");
 	HINSTANCE hMapDLL;
 	funcMap map;
 	funcLeftoverfrombuff leftoverfrombuff;
@@ -38,11 +39,11 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 		if (map != NULL) {
 			for (int i = 0; i < filetext.size(); i++) {
 				fileline = filetext[i];
-				map(temppath, fileline);
+				map(temppath, "temp.txt", fileline);
 			}
 		}
 		if (leftoverfrombuff != NULL)
-			leftoverfrombuff(temppath);
+			leftoverfrombuff(temppath, "temp.txt");
 		FreeLibrary(hMapDLL);
 	}
 	else {
@@ -82,7 +83,7 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 	// Create a success file once the Map-Reduce operation is completed.
 	filemanager.createoutputfile(outputpath, "\\success.txt");
 	filemanager.writetooutput(outputpath, "\\success.txt", "SUCCESS");
-	filemanager.deletetemp(temppath);
+	//filemanager.deletetemp(temppath);
 	cout << "*******************" << endl;
 	cout << "......SUCCESS......" << endl;
 	cout << "*******************" << endl << endl;

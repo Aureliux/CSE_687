@@ -25,6 +25,7 @@ class FileManager
 {
 public:
 	vector<string> opentxtfile(string pathway); // Read all the text files in the input directory and save each line to vector.
+	int numberoffile(string pathway); // Return the number of file in that input directory.
 
 	void createtempfile(string pathway, string filename); // Create a temp.txt to be save temporary result from mapper.
 

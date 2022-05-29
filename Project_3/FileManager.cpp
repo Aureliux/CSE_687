@@ -34,16 +34,24 @@ vector<string> FileManager::opentxtfile(string pathway) {
 	return txtdata;
 }
 
+//Return the number of file in that input directory.
+int FileManager::numberoffile(string pathway){
+	int numoffile = 0;
+	for (const auto& entry : directory_iterator(pathway))
+		++numoffile;
+	return numoffile;
+}
+
 // Create a temp.txt to be save temporary result from mapper.
 void FileManager::createtempfile(string pathway, string filename) {
 	fstream tempfile;
 
-	tempfile.open(pathway + "\\filename", std::ios_base::out); //Create temp file to stored data.
+	tempfile.open(pathway + "\\" + filename, std::ios_base::out); //Create temp file to stored data.
 	while (!tempfile) {
 		cout << "The directory you enter does not exist, please re-enter:" << endl;
 		getline(cin, pathway);
 		tempfile.clear();
-		tempfile.open(pathway + "\\filename", std::ios_base::out);
+		tempfile.open(pathway + "\\" + filename, std::ios_base::out);
 	}
 	tempfile.close();
 }
@@ -64,9 +72,9 @@ vector<string> FileManager::readtempfile(string pathway, string filename) {
 	string line;
 	ifstream tempfile;
 
-	tempfile.open(pathway + "\\filename");
+	tempfile.open(pathway + "\\" + filename);
 	if (!tempfile) {
-		cout << "File Open Fail!" << endl;
+		cout << "Temp File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
 	}
 	while (getline(tempfile, line))
@@ -129,6 +137,6 @@ void FileManager::writetooutput(string pathway, string filename, string outputst
 
 // Delete temporary file and sorted file after the final result is saved to the output file.
 void FileManager::deletetemp(string pathway) {
-	remove(pathway + "\\tempfile.txt");
-	remove(pathway + "\\sorted.txt");
+	for (const auto& entry : std::filesystem::directory_iterator(pathway))
+		std::filesystem::remove_all(entry.path());
 }
