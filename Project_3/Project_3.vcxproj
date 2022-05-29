@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Sorter.h" />
+    <ClInclude Include="Workflow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sorter.cpp" />
+    <ClCompile Include="Workflow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project_3.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -140,17 +154,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Project_2\FileManager.cpp" />
-    <ClCompile Include="..\Project_2\Main.cpp" />
-    <ClCompile Include="..\Project_2\Sorter.cpp" />
-    <ClCompile Include="..\Project_2\Workflow.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Project_2\FileManager.h" />
-    <ClInclude Include="..\Project_2\Sorter.h" />
-    <ClInclude Include="..\Project_2\Workflow.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
