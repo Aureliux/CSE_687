@@ -35,15 +35,15 @@ vector<string> FileManager::opentxtfile(string pathway) {
 }
 
 // Create a temp.txt to be save temporary result from mapper.
-void FileManager::createtempfile(string pathway) {
+void FileManager::createtempfile(string pathway, string filename) {
 	fstream tempfile;
 
-	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out); //Create temp file to stored data.
+	tempfile.open(pathway + "\\filename", std::ios_base::out); //Create temp file to stored data.
 	while (!tempfile) {
 		cout << "The directory you enter does not exist, please re-enter:" << endl;
 		getline(cin, pathway);
 		tempfile.clear();
-		tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out);
+		tempfile.open(pathway + "\\filename", std::ios_base::out);
 	}
 	tempfile.close();
 }
@@ -59,12 +59,12 @@ void FileManager::createsortedfile(string pathway) {
 }
 
 // Read temporary file for the Sorter class.
-vector<string> FileManager::readtempfile(string pathway) {
+vector<string> FileManager::readtempfile(string pathway, string filename) {
 	vector<string> tempdata;
 	string line;
 	ifstream tempfile;
 
-	tempfile.open(pathway + "\\tempfile.txt");
+	tempfile.open(pathway + "\\filename");
 	if (!tempfile) {
 		cout << "File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
