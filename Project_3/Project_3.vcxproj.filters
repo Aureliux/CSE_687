@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Project_2\FileManager.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Project_2\Main.cpp">
+    <ClCompile Include="FileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Project_2\Sorter.cpp">
+    <ClCompile Include="Sorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Project_2\Workflow.cpp">
+    <ClCompile Include="Workflow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Project_2\FileManager.h">
+    <ClInclude Include="FileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Project_2\Sorter.h">
+    <ClInclude Include="Sorter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Project_2\Workflow.h">
+    <ClInclude Include="Workflow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,13 @@
 ﻿  FileManager.cpp
   Main.cpp
-C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(36,35): error C2440: '=': cannot convert from 'std::vector<std::string,std::allocator<std::string>>' to 'int'
-C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(36,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(38,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(60,46): error C2065: 'files': undeclared identifier
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(60,54): error C2660: 'Workflow::mapworkflow': function does not take 2 arguments
+C:\Users\aurel\source\repos\CSE_687\Project_2\Workflow.h(26,7): message : see declaration of 'Workflow::mapworkflow'
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(77,13): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(78,49): error C2065: 'currentfile': undeclared identifier
   Sorter.cpp
   Workflow.cpp
+C:\Users\aurel\source\repos\CSE_687\Project_2\Workflow.cpp(60,67): error C2059: syntax error: ')'
+C:\Users\aurel\source\repos\CSE_687\Project_2\Workflow.cpp(61,1): error C2143: syntax error: missing ')' before '{'
   Generating Code...

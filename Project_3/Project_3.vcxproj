@@ -141,15 +141,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Project_2\FileManager.cpp" />
-    <ClCompile Include="..\Project_2\Main.cpp" />
-    <ClCompile Include="..\Project_2\Sorter.cpp" />
-    <ClCompile Include="..\Project_2\Workflow.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Sorter.cpp" />
+    <ClCompile Include="Workflow.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Project_2\FileManager.h" />
-    <ClInclude Include="..\Project_2\Sorter.h" />
-    <ClInclude Include="..\Project_2\Workflow.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Sorter.h" />
+    <ClInclude Include="Workflow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
