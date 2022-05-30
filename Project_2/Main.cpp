@@ -1,12 +1,13 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //Main.cpp
 //Omar Vargas, Huiying Wu
 
 #include <iostream>
 #include <string>
 #include "Workflow.h"
+#include "FileManager.h"
 #include <thread>
 
 using std::string;
@@ -19,9 +20,11 @@ int main(void) {
 
 	string inputpath, temppath, outputpath;
 	Workflow workflow;
-	// vector<thread> mappers;
-	// vector<thread> reducers;
-	int R;
+	vector<string> files;
+	vector<thread> mappers, reducers;
+	thread mapper1, mapper2, mapper3;
+	FileManager filemanager;
+	int R=0;
 
 	// Prompt user to designate the input, temporary, and output directories.
 	cout << "Please enter input file path:" << endl;
@@ -31,22 +34,26 @@ int main(void) {
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
 
-	// Splits input into R buckets and returns the R value.
-	R = workflow.partition(inputpath);
+	int R = filemanager.numberoffiles(inputpath);
+	files  = workflow.partition(inputpath, R);
 
-	//// Produces a mapper thread for each R bucket and calls the Mapper workflow.
-	//for (int i = 0; i <= R; i++)
-	//{
-	//	mappers[i];
-	//	workflow.mapworkflow(inputpath, temppath, R);
-	//}
-	//
-	//// Produces a reducer thread for each R bucket and calls the Reducer workflow.
-	//for (int i = 0; i <= R; i++)
-	//{
-	//	reducers[i];
-	//	workflow.reduceworkflow(temppath, outputpath);
-	//}
+	// Call each thread here ...
+
+	for (int i = 0; i <= R; i++)
+	{
+		// In Work ...
+		mappers[i];
+		workflow.mapworkflow(inputpath, temppath, files[i]);
+	}
+	
+	
+	// Reducers wait for Mappers to be done.
+	for (int i = 0; i <= R; i++)
+	{
+		// In Work ...
+		reducers[i];
+		workflow.reduceworkflow(temppath, outputpath);
+	}
 
 	return 0;
 }

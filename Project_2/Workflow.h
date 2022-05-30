@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //Workflow Class
 //Omar Vargas, Huiying Wu
 
@@ -19,11 +19,11 @@ class Workflow
 public:
 	
 	/* Splits input into R buckets and returns the R value. */
-	int partition(string inputpath);
+	vector<string> partition(string inputpath, int R);
 	
 	/* Each thread calls the FileManager class to handle file operations and
 	the Mapper DLL to handle the mapping algorithms. */
-	void mapworkflow(string inputpath, string temppath, int R);
+	void mapworkflow(string inputpath, string temppath, string file);
 
 	/* Each thread calls the FileManager class to handle file operations and
 	the Sorter followed by the Reducer DLL to handle the reducing algorithms. */

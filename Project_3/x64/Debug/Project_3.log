@@ -1,6 +1,7 @@
 ﻿  FileManager.cpp
   Main.cpp
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(36,35): error C2440: '=': cannot convert from 'std::vector<std::string,std::allocator<std::string>>' to 'int'
+C:\Users\aurel\source\repos\CSE_687\Project_2\Main.cpp(36,24): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
   Sorter.cpp
   Workflow.cpp
   Generating Code...
-  Project_3.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_3\x64\Debug\Project_3.exe

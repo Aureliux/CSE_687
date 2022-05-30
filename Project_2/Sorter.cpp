@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //Sorting Class
 //Omar Vargas, Huiying Wu
 
@@ -11,7 +11,7 @@ FileManager filehandler;
 // Reads a string vector from the mapped file, sorts the vector in alphabetical order, and creates a sorted file in the temporary directory.
 void Sorter::sortfile(string temppath)
 {
-	vector<string> sortstring = filehandler.readtempfile(temppath);
+	vector<string> sortstring = filehandler.readtempfile(temppath, "temp.txt");
 	sort(sortstring.begin(), sortstring.end());
 	filehandler.createsortedfile(temppath);
 	for (int i = 0; i < sortstring.size(); i++)

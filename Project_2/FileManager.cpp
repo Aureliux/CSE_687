@@ -1,13 +1,13 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 1
+//Project 3
 //File Management Class
 //Omar Vargas, Huiying Wu
 
 #include "FileManager.h"
 
 // Read all the text files in the input directory and save each line to vector.
-vector<string> FileManager::opentxtfile(string pathway) {
+vector<string> FileManager::opentxtfile(string pathway, int R) {
 	vector<string> txtdata;
 	string line;
 
@@ -26,24 +26,35 @@ vector<string> FileManager::opentxtfile(string pathway) {
 		if (opentxt) {
 			while (getline(opentxt, line)) {
 				if (!line.empty())
-					txtdata.push_back(line); //Push each line from the text file to a vector to pass to the Mapper.
+					txtdata.push_back(line);
 			}
 		}
 		opentxt.close();
 	}
+
+	// Instead of returning vecor of lines, return vector of files.
+
 	return txtdata;
 }
 
+//Return the number of files in that input directory.
+int FileManager::numberoffiles(string pathway) {
+	int numoffiles = 0;
+	for (const auto& entry : directory_iterator(pathway))
+		++numoffiles;
+	return numoffiles;
+}
+
 // Create a temp.txt to be save temporary result from mapper.
-void FileManager::createtempfile(string pathway) {
+void FileManager::createtempfile(string pathway, string filename) {
 	fstream tempfile;
 
-	tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out); //Create temp file to stored data.
+	tempfile.open(pathway + "\\" + filename, std::ios_base::out); //Create temp file to stored data.
 	while (!tempfile) {
 		cout << "The directory you enter does not exist, please re-enter:" << endl;
 		getline(cin, pathway);
 		tempfile.clear();
-		tempfile.open(pathway + "\\tempfile.txt", std::ios_base::out);
+		tempfile.open(pathway + "\\" + filename, std::ios_base::out);
 	}
 	tempfile.close();
 }
@@ -59,14 +70,14 @@ void FileManager::createsortedfile(string pathway) {
 }
 
 // Read temporary file for the Sorter class.
-vector<string> FileManager::readtempfile(string pathway) {
+vector<string> FileManager::readtempfile(string pathway, string filename) {
 	vector<string> tempdata;
 	string line;
 	ifstream tempfile;
 
-	tempfile.open(pathway + "\\tempfile.txt");
+	tempfile.open(pathway + "\\" + filename);
 	if (!tempfile) {
-		cout << "File Open Fail!" << endl;
+		cout << "Temp File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
 	}
 	while (getline(tempfile, line))
@@ -129,6 +140,6 @@ void FileManager::writetooutput(string pathway, string filename, string outputst
 
 // Delete temporary file and sorted file after the final result is saved to the output file.
 void FileManager::deletetemp(string pathway) {
-	remove(pathway + "\\tempfile.txt");
-	remove(pathway + "\\sorted.txt");
+	for (const auto& entry : std::filesystem::directory_iterator(pathway))
+		std::filesystem::remove_all(entry.path());
 }

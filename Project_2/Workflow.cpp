@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //Workflow Class
 //Omar Vargas, Huiying Wu
 
@@ -9,33 +9,29 @@
 FileManager filemanager;
 Sorter sorter;
 
-typedef void (*funcMap)(string, string);
+typedef void (*funcMap)(string, string, string);
 typedef void (*funcLeftoverfrombuff)(string);
 typedef void (*funcReduce)(string, vector<string>);
 
 // Splits input into R buckets and returns the R value.
-int Workflow::partition(string inputpath)
+vector<string> Workflow::partition(string inputpath, int R)
 {
-	int R = 0;
-
-	// Call filemanager and read how many files are in inputpath.
-	// Split number of files into R buckets.
-
-	return R;
+	vector<string> filetext;
+	filetext = filemanager.opentxtfile(inputpath, R);
+	cout << "*******************" << endl;
+	cout << "...Splitting Files into " << R << " Buckets..." << endl;
+	cout << "*******************" << endl << endl;
+	
+	return filetext;
 }
 
 // Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
-void Workflow::mapworkflow(string inputpath, string temppath, int R)
+void Workflow::mapworkflow(string inputpath, string temppath, string file)
 {
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
-	string fileline, mappedstring;
-
-	// Read text files from the input directory, send each line to the mapper, and return a mapped string to the temporary directory.
-	filetext = filemanager.opentxtfile(inputpath);
-	cout << "*******************" << endl;
-	cout << "...Reading Files..." << endl;
-	cout << "*******************" << endl << endl;
-	filemanager.createtempfile(temppath);
+	string fileline, mappedstring, filename;
+	
+	filemanager.createtempfile(temppath, filename);
 	HINSTANCE hMapDLL;
 	funcMap map;
 	funcLeftoverfrombuff leftoverfrombuff;
@@ -47,7 +43,7 @@ void Workflow::mapworkflow(string inputpath, string temppath, int R)
 		if (map != NULL) {
 			for (int i = 0; i < filetext.size(); i++) {
 				fileline = filetext[i];
-				map(temppath, fileline);
+				map(temppath, filename, fileline);
 			}
 		}
 		if (leftoverfrombuff != NULL)
@@ -62,7 +58,7 @@ void Workflow::mapworkflow(string inputpath, string temppath, int R)
 void Workflow::reduceworkflow(string temppath, string outputpath)
 {
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
-	string fileline, mappedstring;
+	string fileline, mappedstring, filename;
 	
 	//Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(temppath);

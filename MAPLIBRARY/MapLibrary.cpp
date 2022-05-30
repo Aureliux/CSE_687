@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //MapLibrary DLL
 //Omar Vargas, Huiying Wu
 
@@ -11,7 +11,7 @@
 int buffer_size = 30;
 vector<string> map_v;
 
-void map(string temppath, string fileline)
+void map(string temppath, string filename, string fileline)
 {
 	string currentword, cleanstring, mappedstring;
 	vector<string> mappedfile;
@@ -28,19 +28,19 @@ void map(string temppath, string fileline)
 		token += ", 1";
 		map_v.push_back(token);
 		if (map_v.size() == buffer_size) {
-			export_map(temppath, map_v);
+			export_map(temppath, filename, map_v);
 			map_v.clear();
 		}
 	}
 }
 
-void leftoverfrombuff(string temppath) {
-	export_map(temppath, map_v);
+void leftoverfrombuff(string temppath, string filename) {
+	export_map(temppath, filename, map_v);
 }
 
-void export_map(string temppath, vector<string> str_v) {
+void export_map(string temppath, string filename, vector<string> str_v) {
 	std::ofstream tempfile;
-	tempfile.open(temppath + "\\tempfile.txt", std::ios_base::app);
+	tempfile.open(temppath + "\\" + filename, std::ios_base::app);
 	for (int i = 0; i < str_v.size(); i++) {
 		tempfile << str_v[i] << "\n";
 	}

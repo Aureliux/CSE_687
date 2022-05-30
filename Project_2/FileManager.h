@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //File Management Class
 //Omar Vargas, Huiying Wu
 
@@ -24,12 +24,14 @@ using std::endl;
 class FileManager
 {
 public:
-	vector<string> opentxtfile(string pathway); // Read all the text files in the input directory and save each line to vector.
+	
+	int numberoffiles(string pathway); // Return the number of files in that input directory.
+	vector<string> opentxtfile(string pathway, int R); // Read all the text files in the input directory and save each line to vector.
 
-	void createtempfile(string pathway); // Create a temp.txt to be save temporary result from mapper.
+	void createtempfile(string pathway, string filename); // Create a temp.txt to be save temporary result from mapper.
 
 	void createsortedfile(string pathway); // Create sorted.txt to save sorted data.
-	vector<string> readtempfile(string pathway); // Read temporary file for the Sorter class.
+	vector<string> readtempfile(string pathway, string filename); // Read temporary file for the Sorter class.
 	void writetosortedfile(string pathway, string mappedstring); // Write to sorted file.
 
 	void createoutputfile(string pathway, string filename); // Create output.txt to save the final result.

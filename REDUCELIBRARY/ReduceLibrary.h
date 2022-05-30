@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //ReduceLibrary DLL
 //Omar Vargas, Huiying Wu
 
