@@ -9,25 +9,30 @@
 FileManager filemanager;
 Sorter sorter;
 
+vector<string> filetext, mappedfile, sortedtext, reducedstring;
+
 typedef void (*funcMap)(string, string, string);
 typedef void (*funcLeftoverfrombuff)(string, string);
 typedef void (*funcReduce)(string, vector<string>);
 
 
 
-// Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
-void Workflow::workflow(string inputpath, string temppath, string outputpath)
-{
-	vector<string> filetext, mappedfile, sortedtext, reducedstring;
+//void Workflow::readinputfile(string inputpath){
+//	filetext = filemanager.opentxtfile(inputpath);
+//	cout << "*******************" << endl;
+//	cout << "...Reading Files..." << endl;
+//	cout << "*******************" << endl << endl;
+//}
+
+void Workflow::map_workflow(string inputpath, path inputfilename, string temppath, string filename){
 	string fileline, mappedstring;
 
-	// Read text files from the input directory, send each line to the mapper, and return a mapped string to the temporary directory.
 	filetext = filemanager.opentxtfile(inputpath);
-	int numoffile = filemanager.numberoffile(inputpath);
 	cout << "*******************" << endl;
 	cout << "...Reading Files..." << endl;
 	cout << "*******************" << endl << endl;
-	filemanager.createtempfile(temppath, "temp.txt");
+
+	filemanager.createtempfile(temppath, filename);
 	HINSTANCE hMapDLL;
 	funcMap map;
 	funcLeftoverfrombuff leftoverfrombuff;
@@ -39,17 +44,22 @@ void Workflow::workflow(string inputpath, string temppath, string outputpath)
 		if (map != NULL) {
 			for (int i = 0; i < filetext.size(); i++) {
 				fileline = filetext[i];
-				map(temppath, "temp.txt", fileline);
+				map(temppath, filename, fileline);
 			}
 		}
 		if (leftoverfrombuff != NULL)
-			leftoverfrombuff(temppath, "temp.txt");
+			leftoverfrombuff(temppath, filename);
 		FreeLibrary(hMapDLL);
 	}
 	else {
 		std::cout << "Map Library load failed!" << std::endl;
 	}
+}
 
+
+
+// Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
+void Workflow::reduce_workflow(string temppath, string outputpath){
 	//Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(temppath);
 

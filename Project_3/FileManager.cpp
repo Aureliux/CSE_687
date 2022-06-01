@@ -6,6 +6,22 @@
 
 #include "FileManager.h"
 
+vector<path> FileManager::txtname(string pathway) {
+	vector<string> txtdata;
+	string line;
+
+	path txtstr(pathway);
+	while (!exists(txtstr)) {
+		cout << "The directory you enter does not exist, please re-enter:" << endl;
+		getline(cin, pathway);
+		path txtstr(pathway);
+	}
+	directory_entry entry(txtstr);
+	directory_iterator b(pathway), e;
+	vector<path> txt_file(b, e);
+	return txt_file;
+}
+
 // Read all the text files in the input directory and save each line to vector.
 vector<string> FileManager::opentxtfile(string pathway) {
 	vector<string> txtdata;
@@ -46,12 +62,12 @@ int FileManager::numberoffile(string pathway){
 void FileManager::createtempfile(string pathway, string filename) {
 	fstream tempfile;
 
-	tempfile.open(pathway + "\\" + filename, std::ios_base::out); //Create temp file to stored data.
+	tempfile.open(pathway + "\\" + filename + ".txt", std::ios_base::out); //Create temp file to stored data.
 	while (!tempfile) {
 		cout << "The directory you enter does not exist, please re-enter:" << endl;
 		getline(cin, pathway);
 		tempfile.clear();
-		tempfile.open(pathway + "\\" + filename, std::ios_base::out);
+		tempfile.open(pathway + "\\" + filename + ".txt", std::ios_base::out);
 	}
 	tempfile.close();
 }
@@ -72,7 +88,7 @@ vector<string> FileManager::readtempfile(string pathway, string filename) {
 	string line;
 	ifstream tempfile;
 
-	tempfile.open(pathway + "\\" + filename);
+	tempfile.open(pathway + "\\" + filename + ".txt");
 	if (!tempfile) {
 		cout << "Temp File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
@@ -98,12 +114,12 @@ void FileManager::writetosortedfile(string pathway, string mappedstring) {
 void FileManager::createoutputfile(string pathway, string filename) {
 	fstream outputfile;
 
-	outputfile.open(pathway + filename, std::ios_base::out);
+	outputfile.open(pathway + "\\" + filename + ".txt", std::ios_base::out);
 	while (!outputfile) {
 		cout << "The directory you enter does not exist, please re-enter:" << endl;
 		getline(cin, pathway);
 		outputfile.clear();
-		outputfile.open(pathway + filename, std::ios_base::out);
+		outputfile.open(pathway + "\\" + filename + ".txt", std::ios_base::out);
 	}
 	outputfile.close();
 }
@@ -130,7 +146,7 @@ vector<string> FileManager::readsortedfile(string pathway) {
 //Write to output file.
 void FileManager::writetooutput(string pathway, string filename, string outputstring) {
 	fstream outputfile;
-	outputfile.open(pathway + filename, std::ios_base::app);
+	outputfile.open(pathway + "\\" + filename + ".txt", std::ios_base::app);
 	outputfile << outputstring << endl;
 	outputfile.close();
 }

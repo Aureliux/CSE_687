@@ -24,6 +24,7 @@ using std::endl;
 class FileManager
 {
 public:
+	vector<path> txtname(string pathway);
 	vector<string> opentxtfile(string pathway); // Read all the text files in the input directory and save each line to vector.
 	int numberoffile(string pathway); // Return the number of file in that input directory.
 

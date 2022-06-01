@@ -1,6 +1,6 @@
 //Syracuse University
 //CSE 687 Object Oriented Design
-//Project 2
+//Project 3
 //MapLibrary DLL
 //Omar Vargas, Huiying Wu
 
@@ -40,7 +40,7 @@ void leftoverfrombuff(string temppath, string filename) {
 
 void export_map(string temppath, string filename, vector<string> str_v) {
 	std::ofstream tempfile;
-	tempfile.open(temppath + "\\" + filename, std::ios_base::app);
+	tempfile.open(temppath + "\\" + filename + ".txt", std::ios_base::app);
 	for (int i = 0; i < str_v.size(); i++) {
 		tempfile << str_v[i] << "\n";
 	}
