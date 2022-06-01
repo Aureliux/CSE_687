@@ -45,9 +45,8 @@ int main(void) {
 	vector<thread> threads;
 	for (int i = 0; i < numoffile; i++){
 		mtx.lock();
-		threads.push_back(thread(&Workflow::map_workflow, inputpath, txtname[i], temppath, "temp" + std::to_string(num)));
-		std::this_thread::sleep_for(std::chrono::seconds(3));
-		cout << i << std::this_thread::get_id << endl;
+		threads.push_back(thread(&Workflow::map_workflow, txtname[i], temppath, "temp" + std::to_string(num)));
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 		num = 2 + i;
 		mtx.unlock();
 	}

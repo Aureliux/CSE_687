@@ -24,9 +24,9 @@ typedef void (*funcReduce)(string, vector<string>);
 //	cout << "*******************" << endl << endl;
 //}
 
-void Workflow::map_workflow(string inputpath, path inputfilename, string temppath, string filename){
+void Workflow::map_workflow(path inputfilename, string temppath, string filename){
 	string fileline, mappedstring;
-	filetext = filemanager.opentxtfile(inputpath);
+	filetext = filemanager.opentxtfile(inputfilename);
 	cout << "*******************" << endl;
 	cout << "...Reading Files..." << endl;
 	cout << "*******************" << endl << endl;
