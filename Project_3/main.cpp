@@ -7,8 +7,9 @@
 #include <iostream>
 #include <string>
 #include <thread>
-#include <mutex> 
+#include <mutex>
 #include <filesystem>
+#include <chrono>
 #include "Workflow.h"
 #include "FileManager.h"
 
@@ -43,9 +44,12 @@ int main(void) {
 
 	vector<thread> threads;
 	for (int i = 0; i < numoffile; i++){
+		mtx.lock();
 		threads.push_back(thread(&Workflow::map_workflow, inputpath, txtname[i], temppath, "temp" + std::to_string(num)));
-		//cout << i << std::this_thread::get_id << endl;
+		std::this_thread::sleep_for(std::chrono::seconds(3));
+		cout << i << std::this_thread::get_id << endl;
 		num = 2 + i;
+		mtx.unlock();
 	}
 
 	for (int i = 0; i < numoffile; i++) {
