@@ -28,10 +28,10 @@ vector<string> Workflow::partition(string inputpath)
 }
 
 // Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
-void Workflow::mapworkflow(string inputpath, string temppath, string file)
+void Workflow::mapworkflow(string inputpath, string temppath, string textline)
 {
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
-	string fileline, mappedstring, filename;
+	string mappedstring, filename;
 	
 	filemanager.createtempfile(temppath, filename);
 	HINSTANCE hMapDLL;
@@ -43,10 +43,10 @@ void Workflow::mapworkflow(string inputpath, string temppath, string file)
 		map = (funcMap)GetProcAddress(hMapDLL, "map");
 		leftoverfrombuff = (funcLeftoverfrombuff)GetProcAddress(hMapDLL, "leftoverfrombuff");
 		if (map != NULL) {
-			for (int i = 0; i < filetext.size(); i++) {
-				fileline = filetext[i];
-				map(temppath, filename, fileline);
-			}
+			//for (int i = 0; i < filetext.size(); i++) {
+				//fileline = filetext[i];
+				map(temppath, filename, textline);
+			//}
 		}
 		if (leftoverfrombuff != NULL)
 			leftoverfrombuff(temppath);
@@ -57,7 +57,7 @@ void Workflow::mapworkflow(string inputpath, string temppath, string file)
 	}
 }
 
-void Workflow::reduceworkflow(string temppath, string outputpath)
+void Workflow::reduceworkflow(string temppath, string outputpath, string textline)
 {
 	vector<string> filetext, mappedfile, sortedtext, reducedstring;
 	string fileline, mappedstring, filename;
@@ -69,7 +69,7 @@ void Workflow::reduceworkflow(string temppath, string outputpath)
 	cout << "...Sorting File..." << endl;
 	cout << "*******************" << endl << endl;
 
-	sorter.sortfile(temppath);
+	sorter.sortfile(temppath, textline);
 
 	// Read the sorted text file and send it to the reducer, which will return a reduced text string which is subsequently saved to the output directory.
 	sortedtext = filemanager.readsortedfile(temppath);

@@ -25,6 +25,7 @@ class FileManager
 {
 public:
 	
+	vector<path> txtname(string pathway);
 	int numberoffiles(string pathway); // Return the number of files in that input directory.
 	vector<string> opentxtfile(string pathway); // Read all the text files in the input directory and save each line to vector.
 

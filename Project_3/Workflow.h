@@ -23,10 +23,10 @@ public:
 	
 	/* Each thread calls the FileManager class to handle file operations and
 	the Mapper DLL to handle the mapping algorithms. */
-	void mapworkflow(string inputpath, string temppath, string file);
+	void mapworkflow(string inputpath, string temppath, string textline);
 
 	/* Each thread calls the FileManager class to handle file operations and
 	the Sorter followed by the Reducer DLL to handle the reducing algorithms. */
-	void reduceworkflow(string temppath, string outputpath);	
+	void reduceworkflow(string temppath, string outputpath, string textline);
 
 };
