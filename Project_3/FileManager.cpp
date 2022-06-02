@@ -26,10 +26,8 @@ vector<path> FileManager::txtname(string pathway) {
 // Read all the text files in the input directory and save each line to vector.
 vector<string> FileManager::opentxtfile(path pathway) {
 	vector<string> txtdata;
-	string line;
-
+	string line
 	ifstream opentxt;
-
 	opentxt.open(pathway);
 	if (opentxt) {
 		while (getline(opentxt, line)) {
