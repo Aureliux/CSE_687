@@ -80,13 +80,12 @@ int main(void) {
 	std::sort(temp_v.begin(), temp_v.end());
 
 	fm.deletetemp(outputpath);
+
 	for (int i = 0; i < temp_v.size(); i++){
 		fm.writetooutput(outputpath, "output", temp_v[i]);
 	}
 	fm.createoutputfile(outputpath, "\\success");
 	fm.writetooutput(outputpath, "\\success", "SUCCESS");
-
-	fm.deletetemp(temppath);
 
 	cout << "*******************" << endl;
 	cout << "......SUCCESS......" << endl;
