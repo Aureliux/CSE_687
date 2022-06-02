@@ -19,6 +19,7 @@ using std::thread;
 
 class Workflow{
 public:
+	int partition(string inputpath);
 	static void map_workflow(path inputfilename, string temppath, string filename);
 	static void reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath);
 };

@@ -15,6 +15,16 @@ typedef void (*funcMap)(string, string, string);
 typedef void (*funcLeftoverfrombuff)(string, string);
 typedef void (*funcReduce)(string, vector<string>);
 
+// Determines the number of R buckets and returns the R value.
+int Workflow::partition(string inputpath)
+{
+	int R = filemanager.numberoffile(inputpath);
+	cout << "*******************" << endl;
+	cout << "...Counting " << R << " Buckets..." << endl;
+	cout << "*******************" << endl << endl;
+
+	return R;
+}
 
 void Workflow::map_workflow(path inputfilename, string temppath, string filename){
 	string fileline, mappedstring;
