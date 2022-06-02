@@ -19,7 +19,6 @@ using std::thread;
 
 class Workflow{
 public:
-	//void readinputfile(string inputpath);
 	static void map_workflow(path inputfilename, string temppath, string filename);
-	void reduce_workflow(string temppath, string outputpath);
+	static void reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath);
 };

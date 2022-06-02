@@ -16,14 +16,6 @@ typedef void (*funcLeftoverfrombuff)(string, string);
 typedef void (*funcReduce)(string, vector<string>);
 
 
-
-//void Workflow::readinputfile(string inputpath){
-//	filetext = filemanager.opentxtfile(inputpath);
-//	cout << "*******************" << endl;
-//	cout << "...Reading Files..." << endl;
-//	cout << "*******************" << endl << endl;
-//}
-
 void Workflow::map_workflow(path inputfilename, string temppath, string filename){
 	string fileline, mappedstring;
 	filetext = filemanager.opentxtfile(inputfilename);
@@ -58,19 +50,19 @@ void Workflow::map_workflow(path inputfilename, string temppath, string filename
 
 
 // Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
-void Workflow::reduce_workflow(string temppath, string outputpath){
+void Workflow::reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath){
 	//Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
-	filetext = filemanager.opentxtfile(temppath);
+	filetext = filemanager.opentxtfile(tempfilepath);
 
 	cout << "*******************" << endl;
 	cout << "...Sorting File..." << endl;
 	cout << "*******************" << endl << endl;
 
-	sorter.sortfile(temppath);
+	sorter.sortfile(tempfilepath, temppath, sortedfilename);
 
 	// Read the sorted text file and send it to the reducer, which will return a reduced text string which is subsequently saved to the output directory.
-	sortedtext = filemanager.readsortedfile(temppath);
-	filemanager.createoutputfile(outputpath, "\\output.txt");
+	sortedtext = filemanager.readsortedfile(temppath, sortedfilename);
+	filemanager.createoutputfile(outputpath, "output");
 
 	cout << "*******************" << endl;
 	cout << "...Reducing File..." << endl;
@@ -90,8 +82,8 @@ void Workflow::reduce_workflow(string temppath, string outputpath){
 		cout << "Reduce Library load failed!" << endl;
 	}
 	// Create a success file once the Map-Reduce operation is completed.
-	filemanager.createoutputfile(outputpath, "\\success.txt");
-	filemanager.writetooutput(outputpath, "\\success.txt", "SUCCESS");
+	filemanager.createoutputfile(outputpath, "\\success");
+	filemanager.writetooutput(outputpath, "\\success", "SUCCESS");
 	//filemanager.deletetemp(temppath);
 	cout << "*******************" << endl;
 	cout << "......SUCCESS......" << endl;

@@ -9,15 +9,14 @@
 FileManager filehandler;
 
 // Reads a string vector from the mapped file, sorts the vector in alphabetical order, and creates a sorted file in the temporary directory.
-void Sorter::sortfile(string temppath)
-{
-	vector<string> sortstring = filehandler.readtempfile(temppath, "temp.txt");
+void Sorter::sortfile(path tempfile, string temppath, string sortedfilename){
+	vector<string> sortstring = filehandler.readtempfile(tempfile);
 	sort(sortstring.begin(), sortstring.end());
-	filehandler.createsortedfile(temppath);
+	filehandler.createsortedfile(temppath, sortedfilename);
 	for (int i = 0; i < sortstring.size(); i++)
 	{
 		if (sortstring[i] != "\n" || sortstring[i] != "\0") {
-			filehandler.writetosortedfile(temppath, sortstring[i]);
+			filehandler.writetosortedfile(temppath, sortedfilename, sortstring[i]);
 		}
 	}
 }

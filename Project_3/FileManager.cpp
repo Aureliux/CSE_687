@@ -72,22 +72,21 @@ void FileManager::createtempfile(string pathway, string filename) {
 }
 
 // Create sorted.txt to save sorted data.
-void FileManager::createsortedfile(string pathway) {
+void FileManager::createsortedfile(string pathway, string sortedfilename) {
 	fstream tempfile;
-
-	tempfile.open(pathway + "\\sorted.txt", std::ios_base::out);
+	tempfile.open(pathway + "\\" + sortedfilename + ".txt", std::ios_base::out);
 	if (!tempfile)
 		cout << "Sorting File Create Fail!" << endl;
 	tempfile.close();
 }
 
 // Read temporary file for the Sorter class.
-vector<string> FileManager::readtempfile(string pathway, string filename) {
+vector<string> FileManager::readtempfile(path pathway) {
 	vector<string> tempdata;
 	string line;
 	ifstream tempfile;
 
-	tempfile.open(pathway + "\\" + filename + ".txt");
+	tempfile.open(pathway);
 	if (!tempfile) {
 		cout << "Temp File Open Fail!" << endl;
 		exit(EXIT_FAILURE);
@@ -101,10 +100,10 @@ vector<string> FileManager::readtempfile(string pathway, string filename) {
 }
 
 // Write to sorted file.
-void FileManager::writetosortedfile(string pathway, string mappedstring) {
+void FileManager::writetosortedfile(string pathway, string sortedfilename, string mappedstring) {
 	fstream tempfile;
 
-	tempfile.open(pathway + "\\sorted.txt", std::ios_base::app);
+	tempfile.open(pathway + "\\" + sortedfilename + ".txt", std::ios_base::app);
 	tempfile << mappedstring << endl;
 	tempfile.close();
 }
@@ -124,12 +123,12 @@ void FileManager::createoutputfile(string pathway, string filename) {
 }
 
 // Read sorted file for the Reducer class.
-vector<string> FileManager::readsortedfile(string pathway) {
+vector<string> FileManager::readsortedfile(string pathway, string filename) {
 	vector<string> sorteddata;
 	string line;
 	ifstream sortedfile;
 
-	sortedfile.open(pathway + "\\sorted.txt");
+	sortedfile.open(pathway + "\\" + filename + ".txt");
 	if (!sortedfile) {
 		cout << "File Open Fail!" << endl;
 		exit(EXIT_FAILURE);

@@ -30,12 +30,12 @@ public:
 
 	void createtempfile(string pathway, string filename); // Create a temp.txt to be save temporary result from mapper.
 
-	void createsortedfile(string pathway); // Create sorted.txt to save sorted data.
-	vector<string> readtempfile(string pathway, string filename); // Read temporary file for the Sorter class.
-	void writetosortedfile(string pathway, string mappedstring); // Write to sorted file.
+	void createsortedfile(string pathway, string sortedfilename); // Create sorted.txt to save sorted data.
+	vector<string> readtempfile(path pathway); // Read temporary file for the Sorter class.
+	void writetosortedfile(string pathway, string sortedfilename, string mappedstring); // Write to sorted file.
 
 	void createoutputfile(string pathway, string filename); // Create output.txt to save the final result.
-	vector<string> readsortedfile(string pathway); // Read sorted file for the Reducer class.
+	vector<string> readsortedfile(string pathway, string filename); // Read sorted file for the Reducer class.
 	void writetooutput(string pathway, string filename, string outputstring); // Write to output file.
 
 	void deletetemp(string pathway); // Delete temporary file and sorted file after the final result is saved to the output file.

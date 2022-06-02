@@ -26,10 +26,10 @@ FileManager filemgr;
 int main(void) {
 
 	vector<string> alltext;
-	vector<path> txtname;
+	vector<path> txtname, tempfile;
 	string inputpath, temppath, outputpath;
-	int numoffile = 0, threadSpread = 0, begin = 0;
-	int num = 1;
+	int numoffile = 0;
+	int num = 1, num_2 = 1;
 
 	// Prompt user to designate the input, temporary, and output directories.
 	cout << "Please enter input file path:" << endl;
@@ -42,17 +42,31 @@ int main(void) {
 	numoffile = filemgr.numberoffile(inputpath);
 	txtname = filemgr.txtname(inputpath);
 
-	vector<thread> threads;
+	vector<thread> map_threads;
 	for (int i = 0; i < numoffile; i++){
 		mtx.lock();
-		threads.push_back(thread(&Workflow::map_workflow, txtname[i], temppath, "temp" + std::to_string(num)));
-		std::this_thread::sleep_for(std::chrono::seconds(1));
+		map_threads.push_back(thread(&Workflow::map_workflow, txtname[i], temppath, "temp" + std::to_string(num_2)));
+		std::this_thread::sleep_for(std::chrono::seconds(2));
+		num_2 = 2 + i;
+		mtx.unlock();
+	}
+
+	for (int i = 0; i < numoffile; i++) {
+		map_threads[i].join();
+	}
+
+	tempfile = filemgr.txtname(temppath);
+	vector<thread> reduce_threads;
+	for (int i = 0; i < numoffile; i++) {
+		mtx.lock();
+		reduce_threads.push_back(thread(&Workflow::reduce_workflow, tempfile[i], temppath, "sortedfile" + std::to_string(num), outputpath));
+		std::this_thread::sleep_for(std::chrono::seconds(2));
 		num = 2 + i;
 		mtx.unlock();
 	}
 
 	for (int i = 0; i < numoffile; i++) {
-		threads[i].join();
+		reduce_threads[i].join();
 	}
 
 	return 0;
