@@ -1,2 +1,14 @@
-05/21/2022 (Zoom Meeting)
+05/21/2022 and 05/22/2022 (Zoom Meetings)
 Brainstormed multiple ideas in how to implement the threads. Determined that we need to do a bit more learning in how threads work before starting coding.
+
+05/29/2022 (Zoom Meeting)
+Team made separate branches to practice thread implementations. Split the workflow into two sections - a mapper workflow and a reducer workflow so that they are able to be called separately by individual threads. Had difficulty with the correct syntax for threads.
+
+05/30/2022 (Zoom Meeting)
+Still had difficulty with the correct syntax for threads. Not much progress.
+
+05/31/2022 (Individual Work)
+Huiying had a breaktrhough and succesfully implemented mapper threads. Both members reviewed code.
+
+06/01/2022 (Individual Work)
+Huiying implemented reducer threads. Omar added workflow partition method. Both members reviewed code.
