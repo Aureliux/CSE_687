@@ -19,7 +19,7 @@ int Workflow::partition(string inputpath)
 {
 	int R = filemanager.numberoffiles(inputpath);
 	cout << "*******************" << endl;
-	cout << "...Counting " << R << " Buckets..." << endl;
+	cout << "Counting " << R << " Buckets" << endl;
 	cout << "*******************" << endl << endl;
 
 	return R;
