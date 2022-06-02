@@ -84,7 +84,6 @@ void Workflow::reduce_workflow(path tempfilepath, string temppath, string sorted
 	// Create a success file once the Map-Reduce operation is completed.
 	filemanager.createoutputfile(outputpath, "\\success");
 	filemanager.writetooutput(outputpath, "\\success", "SUCCESS");
-	//filemanager.deletetemp(temppath);
 	cout << "*******************" << endl;
 	cout << "......SUCCESS......" << endl;
 	cout << "*******************" << endl << endl;

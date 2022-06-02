@@ -69,5 +69,7 @@ int main(void) {
 		reduce_threads[i].join();
 	}
 
+	filemgr.deletetemp(temppath);
+
 	return 0;
 }
