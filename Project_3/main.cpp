@@ -21,7 +21,7 @@ using std::thread;
 std::mutex mtx;
 
 Workflow workflow;
-FileManager filemgr;
+FileManager fm;
 
 int main(void) {
 
@@ -39,7 +39,7 @@ int main(void) {
 	getline(cin, outputpath);
 	
 	R = workflow.partition(inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
-	txtname = filemgr.txtname(inputpath); // Return the full path name for each file in the input directory.
+	txtname = fm.txtname(inputpath); // Return the full path name for each file in the input directory.
 
 	// Mapper Threads
 	vector<thread> map_threads;
@@ -55,7 +55,7 @@ int main(void) {
 		map_threads[i].join();
 	}
 
-	tempfile = filemgr.txtname(temppath); // Return the full path name for each file in the temporary directory.
+	tempfile = fm.txtname(temppath); // Return the full path name for each file in the temporary directory.
 
 	// Reducer Threads
 	vector<thread> reduce_threads;
@@ -70,6 +70,27 @@ int main(void) {
 	for (int i = 0; i < R; i++) {
 		reduce_threads[i].join();
 	}
+	
+	outputfile = fm.txtname(outputpath);
+	for (int i = 0; i < outputfile.size(); i++) {
+		outputtxt = fm.readtempfile(outputfile[i]);
+		temp_v.insert(temp_v.end(), outputtxt.begin(), outputtxt.end());
+
+	}
+	std::sort(temp_v.begin(), temp_v.end());
+
+	fm.deletetemp(outputpath);
+	for (int i = 0; i < temp_v.size(); i++){
+		fm.writetooutput(outputpath, "output", temp_v[i]);
+	}
+	fm.createoutputfile(outputpath, "\\success");
+	fm.writetooutput(outputpath, "\\success", "SUCCESS");
+
+	fm.deletetemp(temppath);
+
+	cout << "*******************" << endl;
+	cout << "......SUCCESS......" << endl;
+	cout << "*******************" << endl << endl;
 
 	filemgr.deletetemp(temppath); // After reducing, remove files from the temporary directory.
 
