@@ -38,9 +38,10 @@ int main(void) {
 	cout << "Please enter output file path:" << endl;
 	getline(cin, outputpath);
 	
-	R = workflow.partition(inputpath);
-	txtname = filemgr.txtname(inputpath);
+	R = workflow.partition(inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
+	txtname = filemgr.txtname(inputpath); // Return the full path name for each file in the input directory.
 
+	// Mapper Threads
 	vector<thread> map_threads;
 	for (int i = 0; i < R; i++){
 		mtx.lock();
@@ -54,7 +55,9 @@ int main(void) {
 		map_threads[i].join();
 	}
 
-	tempfile = filemgr.txtname(temppath);
+	tempfile = filemgr.txtname(temppath); // Return the full path name for each file in the temporary directory.
+
+	// Reducer Threads
 	vector<thread> reduce_threads;
 	for (int i = 0; i < R; i++) {
 		mtx.lock();
@@ -68,7 +71,7 @@ int main(void) {
 		reduce_threads[i].join();
 	}
 
-	filemgr.deletetemp(temppath);
+	filemgr.deletetemp(temppath); // After reducing, remove files from the temporary directory.
 
 	return 0;
 }

@@ -8,17 +8,16 @@
 
 FileManager filemanager;
 Sorter sorter;
-
 vector<string> filetext, mappedfile, sortedtext, reducedstring;
 
 typedef void (*funcMap)(string, string, string);
 typedef void (*funcLeftoverfrombuff)(string, string);
 typedef void (*funcReduce)(string, vector<string>);
 
-// Determines the number of R buckets and returns the R value.
+// Returns the number of R buckets to be used by the mapper and reducer threads.
 int Workflow::partition(string inputpath)
 {
-	int R = filemanager.numberoffile(inputpath);
+	int R = filemanager.numberoffiles(inputpath);
 	cout << "*******************" << endl;
 	cout << "...Counting " << R << " Buckets..." << endl;
 	cout << "*******************" << endl << endl;
@@ -26,6 +25,7 @@ int Workflow::partition(string inputpath)
 	return R;
 }
 
+// Calls the Mapper DLL inside a thread.
 void Workflow::map_workflow(path inputfilename, string temppath, string filename){
 	string fileline, mappedstring;
 	filetext = filemanager.opentxtfile(inputfilename);
@@ -57,9 +57,7 @@ void Workflow::map_workflow(path inputfilename, string temppath, string filename
 	}
 }
 
-
-
-// Calls the FileManager class to handle file operations and the Mapper, Sorter, and Reducer classes to handle the modification algorithms.
+// Calls the sorter class and Reducer DLL inside a thread.
 void Workflow::reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath){
 	//Call the sorting method to read the mapped text in the temporary directory and perform an alphabetical sort.
 	filetext = filemanager.opentxtfile(tempfilepath);

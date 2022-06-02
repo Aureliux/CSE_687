@@ -19,7 +19,8 @@ using std::thread;
 
 class Workflow{
 public:
-	int partition(string inputpath);
-	static void map_workflow(path inputfilename, string temppath, string filename);
-	static void reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath);
+
+	int partition(string inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
+	static void map_workflow(path inputfilename, string temppath, string filename); // Calls the Mapper DLL inside a thread.
+	static void reduce_workflow(path tempfilepath, string temppath, string sortedfilename, string outputpath); // Calls the sorter class and Reducer DLL inside a thread.
 };

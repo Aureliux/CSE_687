@@ -6,6 +6,7 @@
 
 #include "FileManager.h"
 
+// Return the full path name for each file.
 vector<path> FileManager::txtname(string pathway) {
 	vector<string> txtdata;
 	string line;
@@ -27,15 +28,6 @@ vector<string> FileManager::opentxtfile(path pathway) {
 	vector<string> txtdata;
 	string line;
 
-	//path txtstr(pathway);
-	//while (!exists(txtstr)) {
-	//	cout << "The directory you enter does not exist, please re-enter:" << endl;
-	//	getline(cin, pathway);
-	//	path txtstr(pathway);
-	//}
-	//directory_entry entry(txtstr);
-	//directory_iterator b(pathway), e;
-	//vector<path> txt_file(b, e);
 	ifstream opentxt;
 
 	opentxt.open(pathway);
@@ -50,11 +42,11 @@ vector<string> FileManager::opentxtfile(path pathway) {
 }
 
 //Return the number of file in that input directory.
-int FileManager::numberoffile(string pathway){
-	int numoffile = 0;
+int FileManager::numberoffiles(string pathway){
+	int numoffiles = 0;
 	for (const auto& entry : directory_iterator(pathway))
-		++numoffile;
-	return numoffile;
+		++numoffiles;
+	return numoffiles;
 }
 
 // Create a temp.txt to be save temporary result from mapper.

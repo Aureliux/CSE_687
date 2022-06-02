@@ -20,16 +20,14 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-
 class FileManager
 {
 public:
-	vector<path> txtname(string pathway);
+	vector<path> txtname(string pathway); // Return the full path name for each file.
 	vector<string> opentxtfile(path pathway); // Read all the text files in the input directory and save each line to vector.
-	int numberoffile(string pathway); // Return the number of file in that input directory.
+	int numberoffiles(string pathway); // Return the number of files in that input directory.
 
 	void createtempfile(string pathway, string filename); // Create a temp.txt to be save temporary result from mapper.
-
 	void createsortedfile(string pathway, string sortedfilename); // Create sorted.txt to save sorted data.
 	vector<string> readtempfile(path pathway); // Read temporary file for the Sorter class.
 	void writetosortedfile(string pathway, string sortedfilename, string mappedstring); // Write to sorted file.
