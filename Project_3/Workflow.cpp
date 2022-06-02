@@ -89,10 +89,4 @@ void Workflow::reduce_workflow(path tempfilepath, string temppath, string sorted
 	else {
 		cout << "Reduce Library load failed!" << endl;
 	}
-	// Create a success file once the Map-Reduce operation is completed.
-	filemanager.createoutputfile(outputpath, "\\success");
-	filemanager.writetooutput(outputpath, "\\success", "SUCCESS");
-	cout << "*******************" << endl;
-	cout << "......SUCCESS......" << endl;
-	cout << "*******************" << endl << endl;
 }

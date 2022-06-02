@@ -25,8 +25,8 @@ FileManager fm;
 
 int main(void) {
 
-	vector<string> alltext;
-	vector<path> txtname, tempfile;
+	vector<string> alltext, outputtxt, temp_v;
+	vector<path> txtname, tempfile, outputfile;
 	string inputpath, temppath, outputpath;
 	int R = 0, num = 1, num_2 = 1;
 
@@ -92,7 +92,7 @@ int main(void) {
 	cout << "......SUCCESS......" << endl;
 	cout << "*******************" << endl << endl;
 
-	filemgr.deletetemp(temppath); // After reducing, remove files from the temporary directory.
+	fm.deletetemp(temppath); // After reducing, remove files from the temporary directory.
 
 	return 0;
 }
