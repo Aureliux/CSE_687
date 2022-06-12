@@ -1,6 +1,3 @@
-﻿  FileManager.cpp
-  main.cpp
-  Sorter.cpp
-  Workflow.cpp
-  Generating Code...
-  Project_4.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Project_4\x64\Debug\Project_4.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(700,5): error MSB6006: "CL.exe" exited with code 2.
+cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+cl : command line error D8016: '/ZI' and '/Gy-' command-line options are incompatible
