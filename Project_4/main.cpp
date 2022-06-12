@@ -5,6 +5,7 @@
 //Omar Vargas, Huiying Wu
 
 #define WIN32_LEAN_AND_MEAN
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 #include <iostream>
 #include <string>
@@ -38,7 +39,7 @@ int main(void) {
 	vector<string> alltext, outputtxt, temp_v;
 	vector<path> txtname, tempfile, outputfile;
 	string inputpath, temppath, outputpath;
-	int R = 0, num = 1, num_2 = 1;
+	int R = 0, num = 1, num_2 = 1, err = 0;
 
 	// Client Socket Declarations
 	WSADATA wsaData;
@@ -49,17 +50,17 @@ int main(void) {
 
 	// wVersionRequested Error Checking
 	WORD wVersionRequested = MAKEWORD(2, 2);
-	if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
-	{
-		cout << "Could not find a usable version of Winsock.dll" << endl;
-		WSACleanup();
-		return 1;
-	}
-	else
-		cout << "The Winsock 2.2 dll was found okay" << endl;
+	//  if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
+	//  {
+	//  	cout << "Could not find a usable version of Winsock.dll" << endl;
+	//  	WSACleanup();
+	//  	return 1;
+	//  }
+	//  else
+	//  	cout << "The Winsock 2.2 dll was found okay" << endl;
 
-	// WSA Startup and Error Checking
-	int err = WSAStartup(wVersionRequested, &wsaData);
+	// WSA Startup
+	err = WSAStartup(wVersionRequested, &wsaData);
 	if (err != 0)
 	{
 		cout << "WSAStartup failed with error: " << err << endl;
@@ -88,24 +89,99 @@ int main(void) {
 		return 1;
 	}
 
-
-	// Stub proccesses (threads) that will use server sockets.
-
-	// Create socket
-	SOCKET server1 = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-
-	// Bind socket
-	int bind(server1, *name, namelen);
-
-	// Listen for incoming requests
-	int listen(server1, backlog);
-
-	// Accept incoming connection
-	SOCKET accept(server1, *addr, *addrlen);
+	// write()
 
 
 
+	// Stub proccess (thread) that uses server sockets.
+	
+	// START STUBS (THREADS) FOR MAPPER AND REDUCER
+	// ...
 
+	// Creating Server Socket
+	SOCKET serverlisten1 = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (serverlisten1 == INVALID_SOCKET) {
+		cout << "Socket function failed with error : " << WSAGetLastError() << endl;
+		WSACleanup();
+		return 1;
+	}
+
+	// Server Socket Declarations
+	sockaddr_in serverService;
+	serverService.sin_family = AF_INET;
+	serverService.sin_addr.s_addr = inet_addr("127.0.0.1");
+	serverService.sin_port = htons(26000);
+
+	// Binding Server Socket
+	err = bind(serverlisten1, (SOCKADDR*)&serverService, sizeof(serverService));
+	if (err == SOCKET_ERROR)
+	{
+		cout << "Binding failed with error: " << WSAGetLastError() << endl;
+		err = closesocket(serverlisten1);
+		if (err == SOCKET_ERROR)
+		{
+			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
+		}
+		WSACleanup();
+		return 1;
+	}
+	else
+	{
+		cout << "Bind succesful!" << endl;
+	}
+
+	// Listening for incoming request
+	err = listen(serverlisten1, SOMAXCONN) == SOCKET_ERROR;
+	if (err == SOCKET_ERROR)
+	{
+		cout << "Listening failed with error: " << WSAGetLastError() << endl;
+		err = closesocket(serverlisten1);
+		if (err == SOCKET_ERROR)
+		{
+			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
+		}
+		WSACleanup();
+		return 1;
+	}
+	else
+	{
+		cout << "Listening..." << endl;
+	}
+
+	// Accepting incoming connection
+	SOCKET serveraccept1 = accept(serverlisten1, NULL, NULL);
+	if (serveraccept1 == INVALID_SOCKET)
+	{
+		cout << "Accept failed with error: " << WSAGetLastError() << endl;
+		err = closesocket(serverlisten1);
+		if (err == SOCKET_ERROR)
+		{
+			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
+		}
+		WSACleanup();
+		return 1;
+	}
+	else
+	{
+		cout << "Accepting..." << endl;
+
+		
+		// read() for instruction telling to start child processes
+			// Create child threads for mapper
+			// Call Mapper DLL
+			// Send heartbeat message at k seconds(?) to client.
+	}
+
+	// SECOND STUB PROCCESS FOR REDUCER
+		// CREATE SOCKETS, BIND, LISTEN, ACCEPT
+				// read() for instruction telling to start child processes
+				// Create child threads for reducer
+				// Controller (client) says when to call Reducer DLL
+
+
+	closesocket(serverlisten1);
+	WSACleanup();
+	// END STUB (THREAD)
 
 
 	// Prompt user to designate the input, temporary, and output directories.
