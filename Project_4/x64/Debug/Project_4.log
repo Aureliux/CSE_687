@@ -1,3 +1,5 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   main.cpp
-  Project_4.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Project_4\x64\Debug\Project_4.exe
+C:\Users\Joann\Documents\GitHub\CSE_687\Project_4\main.cpp(101,84): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joann\Documents\GitHub\CSE_687\Project_4\main.cpp(151,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Project_4.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Project_4\x64\Debug\Project_4.exe

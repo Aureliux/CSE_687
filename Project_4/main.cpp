@@ -41,189 +41,116 @@ int main(void) {
 	string inputpath, temppath, outputpath;
 	int R = 0, num = 1, num_2 = 1, err = 0;
 
-	// Client Socket Declarations
-	WSADATA wsaData;
-	sockaddr_in clientService;
-	clientService.sin_family = AF_INET;
-	clientService.sin_addr.s_addr = inet_addr("127.0.0.1");
-	clientService.sin_port = htons(25000);
+	//cout << "Please enter input file path:" << endl;
+	//getline(cin, inputpath);
+	//cout << "Please enter temporary file path:" << endl;
+	//getline(cin, temppath);
+	//cout << "Please enter output file path:" << endl;
+	//getline(cin, outputpath);
 
-	// wVersionRequested Error Checking
-	WORD wVersionRequested = MAKEWORD(2, 2);
-	//  if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
-	//  {
-	//  	cout << "Could not find a usable version of Winsock.dll" << endl;
-	//  	WSACleanup();
-	//  	return 1;
-	//  }
-	//  else
-	//  	cout << "The Winsock 2.2 dll was found okay" << endl;
+	inputpath = "C:\\Users\\Joann\\Desktop\\test\\shakespeare";
+	temppath = "C:\\Users\\Joann\\Desktop\\test\\Temp";
+	outputpath = "C:\\Users\\Joann\\Desktop\\test\\Output";
 
-	// WSA Startup
-	err = WSAStartup(wVersionRequested, &wsaData);
-	if (err != 0)
-	{
-		cout << "WSAStartup failed with error: " << err << endl;
-		return 1;
-	}
-
-	// Creating Client Socket
-	SOCKET client = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (client == INVALID_SOCKET) {
-		cout << "Socket function failed with error : " << WSAGetLastError() << endl;
-		WSACleanup();
-		return 1;
-	}
-
-	// Connecting Client Socket
-	err = connect(client, (SOCKADDR*)&clientService, sizeof(clientService));
-	if (err == SOCKET_ERROR)
-	{
-		cout << "Connection failed with error: " << WSAGetLastError() << endl;
-		err = closesocket(client);
-		if (err == SOCKET_ERROR)
-		{
-			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
-		}
-		WSACleanup();
-		return 1;
-	}
-
-	// write()
-
-
-
-	// Stub proccess (thread) that uses server sockets.
-	
-	// START STUBS (THREADS) FOR MAPPER AND REDUCER
-	// ...
-
-	// Creating Server Socket
-	SOCKET serverlisten1 = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (serverlisten1 == INVALID_SOCKET) {
-		cout << "Socket function failed with error : " << WSAGetLastError() << endl;
-		WSACleanup();
-		return 1;
-	}
-
-	// Server Socket Declarations
-	sockaddr_in serverService;
-	serverService.sin_family = AF_INET;
-	serverService.sin_addr.s_addr = inet_addr("127.0.0.1");
-	serverService.sin_port = htons(26000);
-
-	// Binding Server Socket
-	err = bind(serverlisten1, (SOCKADDR*)&serverService, sizeof(serverService));
-	if (err == SOCKET_ERROR)
-	{
-		cout << "Binding failed with error: " << WSAGetLastError() << endl;
-		err = closesocket(serverlisten1);
-		if (err == SOCKET_ERROR)
-		{
-			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
-		}
-		WSACleanup();
-		return 1;
-	}
-	else
-	{
-		cout << "Bind succesful!" << endl;
-	}
-
-	// Listening for incoming request
-	err = listen(serverlisten1, SOMAXCONN) == SOCKET_ERROR;
-	if (err == SOCKET_ERROR)
-	{
-		cout << "Listening failed with error: " << WSAGetLastError() << endl;
-		err = closesocket(serverlisten1);
-		if (err == SOCKET_ERROR)
-		{
-			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
-		}
-		WSACleanup();
-		return 1;
-	}
-	else
-	{
-		cout << "Listening..." << endl;
-	}
-
-	// Accepting incoming connection
-	SOCKET serveraccept1 = accept(serverlisten1, NULL, NULL);
-	if (serveraccept1 == INVALID_SOCKET)
-	{
-		cout << "Accept failed with error: " << WSAGetLastError() << endl;
-		err = closesocket(serverlisten1);
-		if (err == SOCKET_ERROR)
-		{
-			cout << "closesocket function failed with error: " << WSAGetLastError() << endl;
-		}
-		WSACleanup();
-		return 1;
-	}
-	else
-	{
-		cout << "Accepting..." << endl;
-
-		
-		// read() for instruction telling to start child processes
-			// Create child threads for mapper
-			// Call Mapper DLL
-			// Send heartbeat message at k seconds(?) to client.
-	}
-
-	// SECOND STUB PROCCESS FOR REDUCER
-		// CREATE SOCKETS, BIND, LISTEN, ACCEPT
-				// read() for instruction telling to start child processes
-				// Create child threads for reducer
-				// Controller (client) says when to call Reducer DLL
-
-
-	closesocket(serverlisten1);
-	WSACleanup();
-	// END STUB (THREAD)
-
-
-	// Prompt user to designate the input, temporary, and output directories.
-	cout << "Please enter input file path:" << endl;
-	getline(cin, inputpath);
-	cout << "Please enter temporary file path:" << endl;
-	getline(cin, temppath);
-	cout << "Please enter output file path:" << endl;
-	getline(cin, outputpath);
-
+	//Stub 1
 	R = workflow.partition(inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
 	txtname = fm.txtname(inputpath); // Return the full path name for each file in the input directory.
+	WORD wVersion = MAKEWORD(2, 2);
+	WSADATA wsadata;
+	if (WSAStartup(wVersion, &wsadata) != 0) {
+		return 1;
+	}
+	SOCKET stub1 = socket(AF_INET, SOCK_STREAM, 0);
+	if (stub1 == INVALID_SOCKET) {
+		cout << "Socket Fail " << WSAGetLastError() << endl;
+		return -1;
+	}
+	sockaddr_in add;
+	int len = sizeof(sockaddr_in);
+	add.sin_family = AF_INET;
+	add.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+	add.sin_port = htons(25000);
 
-	// Mapper Threads
-	vector<thread> map_threads;
-	for (int i = 0; i < R; i++) {
-		mtx.lock();
-		map_threads.push_back(thread(&Workflow::map_workflow, txtname[i], temppath, "temp" + std::to_string(num_2)));
-		std::this_thread::sleep_for(std::chrono::seconds(2));
-		num_2 = 2 + i;
-		mtx.unlock();
+	// Connect to Server Socket
+	int i = connect(stub1, (sockaddr*)&add, len);
+	if (SOCKET_ERROR == i) {
+		return 1;
 	}
 
-	for (int i = 0; i < R; i++) {
-		map_threads[i].join();
+	// Accept and send data
+	char stub_1[256] = { 0 };
+	int ret = recv(stub1, stub_1, 256, 0);
+	if (ret == 0) {
+		return 1;
+	}
+	else if (ret > 0) {
+		// Mapper Threads
+		printf("%s\n", stub_1);
+		vector<thread> map_threads;
+		for (int i = 0; i < R; i++) {
+			mtx.lock();
+			map_threads.push_back(thread(&Workflow::map_workflow, txtname[i], temppath, "temp" + std::to_string(num_2)));
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			num_2 = 2 + i;
+			mtx.unlock();
+		}
+
+		for (int i = 0; i < R; i++) {
+			map_threads[i].join();
+		}
+		send(stub1, "Stub1: Mapper Complete..\n", strlen("Stub1: Mapper Complete..\n"), 0);
 	}
 
+
+	// Stub 2
 	tempfile = fm.txtname(temppath); // Return the full path name for each file in the temporary directory.
 
-	// Reducer Threads
-	vector<thread> reduce_threads;
-	for (int i = 0; i < R; i++) {
-		mtx.lock();
-		reduce_threads.push_back(thread(&Workflow::reduce_workflow, tempfile[i], temppath, "sortedfile" + std::to_string(num), outputpath));
-		std::this_thread::sleep_for(std::chrono::seconds(2));
-		num = 2 + i;
-		mtx.unlock();
+	WORD wVersion_2 = MAKEWORD(2, 2);
+	WSADATA wsadata_2;
+	if (WSAStartup(wVersion_2, &wsadata_2) != 0) {
+		return 1;
+	}
+	SOCKET stub2 = socket(AF_INET, SOCK_STREAM, 0);
+	if (stub2 == INVALID_SOCKET) {
+		cout << "Socket Fail " << WSAGetLastError() << endl;
+		return -1;
+	}
+	sockaddr_in add_2;
+	int len_2 = sizeof(sockaddr_in);
+	add_2.sin_family = AF_INET;
+	add_2.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+	add_2.sin_port = htons(25000);
+
+	// Connect to Server Socket
+	int j = connect(stub2, (sockaddr*)&add_2, len_2);
+	if (SOCKET_ERROR == j) {
+		return 1;
 	}
 
-	for (int i = 0; i < R; i++) {
-		reduce_threads[i].join();
+	// Accept and send data
+	char stub_2[256] = { 0 };
+	int ret_2 = recv(stub2, stub_2, 256, 0);
+	if (ret_2 == 0) {
+		return 1;
 	}
+	else if (ret_2 > 0) {
+		// Mapper Threads
+		printf("%s\n", stub_2);
+		vector<thread> reduce_threads;
+		for (int i = 0; i < R; i++) {
+			mtx.lock();
+			reduce_threads.push_back(thread(&Workflow::reduce_workflow, tempfile[i], temppath, "sortedfile" + std::to_string(num), outputpath));
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			num = 2 + i;
+			mtx.unlock();
+		}
+
+		for (int i = 0; i < R; i++) {
+			reduce_threads[i].join();
+		}
+		send(stub2, "Stub2: Reducer Complete..\n", strlen("Stub2: Reducer Complete..\n"), 0);
+	}
+
 
 	outputfile = fm.txtname(outputpath);
 	for (int i = 0; i < outputfile.size(); i++) {
@@ -247,6 +174,9 @@ int main(void) {
 
 	fm.deletetemp(temppath); // After reducing, remove files from the temporary directory.
 
+	closesocket(stub1);
+	closesocket(stub2);
 	WSACleanup();
+
 	return 0;
 }
