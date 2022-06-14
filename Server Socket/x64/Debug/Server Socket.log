@@ -1,4 +1,1 @@
-﻿  Server Socket.cpp
-C:\Users\Joann\Documents\GitHub\CSE_687\Server Socket\Server Socket.cpp(55,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Joann\Documents\GitHub\CSE_687\Server Socket\Server Socket.cpp(67,86): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Server Socket.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Server Socket\x64\Debug\Server Socket.exe
+﻿  Server Socket.vcxproj -> C:\Users\aurel\source\repos\CSE_687\Server Socket\x64\Debug\Server Socket.exe

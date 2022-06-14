@@ -26,7 +26,7 @@ int main() {
 		return -1;
 	}
 
-	// Connecting Server Socket
+	// Binding Server Socket
 	sockaddr_in add;
 	int len = sizeof(sockaddr_in);
 	add.sin_family = AF_INET;
@@ -68,7 +68,6 @@ int main() {
 		valread = recv(sclient_2, buffer_2, 256, 0);
 		printf("%s\n", buffer_2);
 	}
-
 
 	closesocket(sclient);
 	WSACleanup();

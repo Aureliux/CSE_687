@@ -33,7 +33,6 @@ std::mutex mtx;
 Workflow workflow;
 FileManager fm;
 
-
 int main(void) {
 
 	vector<string> alltext, outputtxt, temp_v;
@@ -48,9 +47,15 @@ int main(void) {
 	//cout << "Please enter output file path:" << endl;
 	//getline(cin, outputpath);
 
-	inputpath = "C:\\Users\\Joann\\Desktop\\test\\shakespeare";
-	temppath = "C:\\Users\\Joann\\Desktop\\test\\Temp";
-	outputpath = "C:\\Users\\Joann\\Desktop\\test\\Output";
+	// Testing in Omar's PC
+	inputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Input_Text";
+	temppath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Temp_Text";
+	outputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Output_Text";
+
+	// Testing in Huiying's PC
+	// inputpath = "C:\\Users\\Joann\\Desktop\\test\\shakespeare";
+	// temppath = "C:\\Users\\Joann\\Desktop\\test\\Temp";
+	// outputpath = "C:\\Users\\Joann\\Desktop\\test\\Output";
 
 	//Stub 1
 	R = workflow.partition(inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
@@ -101,7 +106,6 @@ int main(void) {
 		send(stub1, "Stub1: Mapper Complete..\n", strlen("Stub1: Mapper Complete..\n"), 0);
 	}
 
-
 	// Stub 2
 	tempfile = fm.txtname(temppath); // Return the full path name for each file in the temporary directory.
 
@@ -134,7 +138,7 @@ int main(void) {
 		return 1;
 	}
 	else if (ret_2 > 0) {
-		// Mapper Threads
+		// Reducer Threads
 		printf("%s\n", stub_2);
 		vector<thread> reduce_threads;
 		for (int i = 0; i < R; i++) {
@@ -150,7 +154,6 @@ int main(void) {
 		}
 		send(stub2, "Stub2: Reducer Complete..\n", strlen("Stub2: Reducer Complete..\n"), 0);
 	}
-
 
 	outputfile = fm.txtname(outputpath);
 	for (int i = 0; i < outputfile.size(); i++) {
