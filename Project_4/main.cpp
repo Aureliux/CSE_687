@@ -40,57 +40,68 @@ int main(void) {
 	string inputpath, temppath, outputpath;
 	int R = 0, num = 1, num_2 = 1, err = 0;
 
-	//cout << "Please enter input file path:" << endl;
-	//getline(cin, inputpath);
-	//cout << "Please enter temporary file path:" << endl;
-	//getline(cin, temppath);
-	//cout << "Please enter output file path:" << endl;
-	//getline(cin, outputpath);
-
 	// Testing in Omar's PC
-	inputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Input_Text";
+	/*inputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Input_Text";
 	temppath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Temp_Text";
-	outputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Output_Text";
+	outputpath = "C:\\Users\\aurel\\source\\repos\\CSE_687\\Output_Text";*/
 
 	// Testing in Huiying's PC
-	// inputpath = "C:\\Users\\Joann\\Desktop\\test\\shakespeare";
-	// temppath = "C:\\Users\\Joann\\Desktop\\test\\Temp";
-	// outputpath = "C:\\Users\\Joann\\Desktop\\test\\Output";
+	inputpath = "C:\\Users\\Joann\\Desktop\\test\\shakespeare";
+	temppath = "C:\\Users\\Joann\\Desktop\\test\\Temp";
+	outputpath = "C:\\Users\\Joann\\Desktop\\test\\Output";
 
 	//Stub 1
 	R = workflow.partition(inputpath); // Returns the number of R buckets to be used by the mapper and reducer threads.
 	txtname = fm.txtname(inputpath); // Return the full path name for each file in the input directory.
+
 	WORD wVersion = MAKEWORD(2, 2);
 	WSADATA wsadata;
 	if (WSAStartup(wVersion, &wsadata) != 0) {
-		return 1;
+		std::cerr << "Can't Initialize winsock!" << endl;
+		return -1;
 	}
 	SOCKET stub1 = socket(AF_INET, SOCK_STREAM, 0);
 	if (stub1 == INVALID_SOCKET) {
-		cout << "Socket Fail " << WSAGetLastError() << endl;
+		std::cerr << "Socket Create Fail " << endl;
 		return -1;
 	}
+
 	sockaddr_in add;
 	int len = sizeof(sockaddr_in);
 	add.sin_family = AF_INET;
 	add.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
 	add.sin_port = htons(25000);
 
-	// Connect to Server Socket
-	int i = connect(stub1, (sockaddr*)&add, len);
-	if (SOCKET_ERROR == i) {
-		return 1;
+	bind(stub1, (sockaddr*)&add, len);
+
+	listen(stub1, SOMAXCONN);
+
+	sockaddr_in controller;
+	int controllerSize = sizeof(controller);
+
+	SOCKET Controller_Socket = accept(stub1, (sockaddr*)&controller, &controllerSize);
+	if (Controller_Socket == INVALID_SOCKET) {
+		std::cerr << "Socket Create Fail " << endl;
+		return -1;
 	}
 
-	// Accept and send data
-	char stub_1[256] = { 0 };
-	int ret = recv(stub1, stub_1, 256, 0);
-	if (ret == 0) {
-		return 1;
-	}
-	else if (ret > 0) {
+	closesocket(stub1);
+
+	char stub1_buf[4096] = { 0 };
+	while (true){
+
+		int msg_resv = recv(Controller_Socket, stub1_buf, 4096, 0);
+		if (msg_resv == SOCKET_ERROR){
+			std::cerr << "Error in recv()" << endl;
+			break;
+		}
+		if (msg_resv == 0) {
+			std::cerr << "Controller disconnected" << endl;
+			break;
+		}
+		
 		// Mapper Threads
-		printf("%s\n", stub_1);
+		printf("%s\n", stub1_buf);
 		vector<thread> map_threads;
 		for (int i = 0; i < R; i++) {
 			mtx.lock();
@@ -103,8 +114,14 @@ int main(void) {
 		for (int i = 0; i < R; i++) {
 			map_threads[i].join();
 		}
-		send(stub1, "Stub1: Mapper Complete..\n", strlen("Stub1: Mapper Complete..\n"), 0);
+		send(Controller_Socket, "Stub1: Mapper Complete..\n", strlen("Stub1: Mapper Complete..\n"), 0);
 	}
+
+
+
+
+
+
 
 	// Stub 2
 	tempfile = fm.txtname(temppath); // Return the full path name for each file in the temporary directory.
@@ -177,8 +194,7 @@ int main(void) {
 
 	fm.deletetemp(temppath); // After reducing, remove files from the temporary directory.
 
-	closesocket(stub1);
-	closesocket(stub2);
+	closesocket(Controller_Socket);
 	WSACleanup();
 
 	return 0;
