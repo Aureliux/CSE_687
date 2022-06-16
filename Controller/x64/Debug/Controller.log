@@ -1,0 +1,4 @@
+﻿  controller.cpp
+C:\Users\Joann\Documents\GitHub\CSE_687\Controller\controller.cpp(44,101): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joann\Documents\GitHub\CSE_687\Controller\controller.cpp(72,102): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Controller.vcxproj -> C:\Users\Joann\Documents\GitHub\CSE_687\Controller\x64\Debug\Controller.exe
