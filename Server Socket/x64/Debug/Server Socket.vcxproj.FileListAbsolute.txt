@@ -1,2 +1,0 @@
-C:\Users\aurel\source\repos\CSE_687\Server Socket\x64\Debug\Server Socket.exe
-C:\Users\Joann\Documents\GitHub\CSE_687\Server Socket\x64\Debug\Controller.exe
