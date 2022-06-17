@@ -69,7 +69,7 @@ int main() {
 			return -1;
 		}
 
-		int sendResult = send(controller_2, "Stub2: Begin Reduce..\n", strlen("Stub2: Begin Reduce..\n"), 0);
+		int sendResult = send(controller_2, "Stub2: Begin Reducing..\n", strlen("Stub2: Begin Reducing..\n"), 0);
 		std::cout << "Stub2: Reducer Started.." << std::endl;
 		if (sendResult != 0) {
 			ZeroMemory(stub_2, 256);

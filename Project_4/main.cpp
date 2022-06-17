@@ -111,7 +111,7 @@ int main(void) {
 		for (int i = 0; i < R; i++) {
 			map_threads[i].join();
 		}
-		send(Controller_Socket, "Stub1: Mapper Complete..\n", strlen("Stub1: Mapper Complete..\n"), 0);
+		send(Controller_Socket, "Stub1: Mapper Completed..\n", strlen("Stub1: Mapper Completed..\n"), 0);
 	}
 
 
@@ -179,7 +179,7 @@ int main(void) {
 		for (int i = 0; i < R; i++) {
 			reduce_threads[i].join();
 		}
-		send(Controller_Socket_2, "Stub2: Reducer Complete..\n", strlen("Stub2: Reducer Complete..\n"), 0);
+		send(Controller_Socket_2, "Stub2: Reducer Completed..\n", strlen("Stub2: Reducer Completed..\n"), 0);
 	}
 
 	outputfile = fm.txtname(outputpath);
