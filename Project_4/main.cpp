@@ -114,12 +114,6 @@ int main(void) {
 		send(Controller_Socket, "Stub1: Mapper Completed..\n", strlen("Stub1: Mapper Completed..\n"), 0);
 	}
 
-
-
-
-
-
-
 	tempfile = fm.txtname(temppath); // Return the full path name for each file in the temporary directory.
 
 	// Stub 2 - Reducer
