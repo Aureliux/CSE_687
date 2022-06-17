@@ -6,7 +6,8 @@
 
 #### Requirements to Run:
 
-- ***Run project 4 solution console to activate stub process first, then run controller solution console to begin process.***
+- ***User must run the Project 4 solution console first to activate the stub processes, then run the Controller solution console to begin the process.***
+- ***User must update the input/output paths in main.cpp to include their local directories and text files.***
 
 - C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
@@ -19,9 +20,9 @@
 #### Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. The Mapper and Reducer are included as Dynamic Link Libraries (DLLs) to the client executable file.
 
-This project contains 2 stubs processes and 1 controller. The stub will sit and wait for the controller's message via the socket to start working. The stub will either be the mapper process or reduces process. Stub1 will start the mapper first, and then the mapper process has to finish its work before reduce process can start. Whebn the mapper finished, mapper will send a message back to the controller, last the controller will send a new message to stub2 to begin reduces process. 
+This project contains 2 stubs processes and 1 controller. The stub will sit and wait for the controller's message via the socket to start working. The stub will either be the mapper process or reducer process. Stub1 will start the mapper first the mapper process has to finish before the reducer process can start. When the mapper finishes, it will send a message back to the controller and then the controller will send a new message to Stub2 to begin the reducer process. 
 
-The program will then calculate the number of R buckets based on how many files are on the input folder. This R value will be used to determine how many mapper and reducer threads need to be called. All the mapper threads are executed before the reducer threads are called to sort and reduce the files. At the end, a success file is created and the temporary files are deleted.
+The program will calculate the number of R buckets based on how many files are on the input folder. This R value will be used to determine how many mapper and reducer threads need to be called. All the mapper threads are executed before the reducer threads are called to sort and reduce the files. At the end, a success file is created and the temporary files are deleted.
 
 #### Program Contains the Following Classes:
 Main - Prompts the user to designate input folder, temporary folder, and output folder. The program will call Workflow to calculate the number of R buckets based on how many files are on the input folder. Finally, the R value is used to execute mapper threads until completion followed by reducer threads.
