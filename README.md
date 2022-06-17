@@ -5,6 +5,9 @@
 * ### Project 4
 
 #### Requirements to Run:
+
+Run project 4 solution console to activate stub process, then run controller solution console to begin process.
+
 C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 
