@@ -1,0 +1,26 @@
+06/05/2022 (Zoom Meeting)
+Reviewed Project 4 requirements and brainstormed possible solutions. Decided to study more on how sockets work.
+
+06/08/2022 (Zoom Meeting)
+Discussed socket placement in the code and started to include the required headers and modified project properties.
+
+06/10/2022 (Zoom Meeting)
+Researched how to implement server and client sockets and how to connect them.
+
+06/11/2022 (Zoom Meeting)
+Struggled to understand the meaning of stub processes and controllers so we sent an an email with questions to the professor. Continued socket implementation.
+
+06/12/2022 (Zoom Meeting)
+Client sockets and Server sockets finally implemented succesfully. Reviewed together.
+
+06/13/2022 (Individual Work)
+Huiying implemented threads around the controller and server sockets and split the controller into another executable. Omar reviewed and provided feedback.
+
+06/14/2022 (Individual Work)
+Professor responded to questions and provided clarity on controller and stub processes. Made modifications to the code to switch the sockets that listen and the ones that send messages.
+
+06/15/2022 (Zoom Meeting)
+Made final updates and reviewed the code together. Ran a final test to make sure everything is working.
+
+06/16/2022 (Zoom Meeting)
+Demoed the project to the professor to make sure we are compelting the requirements.
