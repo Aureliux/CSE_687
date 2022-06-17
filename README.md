@@ -6,15 +6,15 @@
 
 #### Requirements to Run:
 
-***Run project 4 solution console to activate stub process first, then run controller solution console to begin process.***
+- ***Run project 4 solution console to activate stub process first, then run controller solution console to begin process.***
 
-C++17 - Needed to include the "filesystem" library used by the FileManager class. 
+- C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 
-boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
+- boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `General` > `Additional Include Directories` > add path to boost file.<br>
 
-Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
+- Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
 
 #### Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. The Mapper and Reducer are included as Dynamic Link Libraries (DLLs) to the client executable file.
@@ -45,13 +45,13 @@ _______________
 * ### Project 3
 
 #### Requirements to Run:
-C++17 - Needed to include the "filesystem" library used by the FileManager class. 
+- C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 
-boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
+- boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `General` > `Additional Include Directories` > add path to boost file.<br>
 
-Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
+- Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
 
 #### Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. The Mapper and Reducer are included as Dynamic Link Libraries (DLLs) to the client executable file.
@@ -81,13 +81,13 @@ _______________
 * ### Project 2
 
 #### Requirements to Run:
-C++17 - Needed to include the "filesystem" library used by the FileManager class. 
+- C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 
-boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
+- boost/tokenizer.hpp - Needed to add "boost" library to use Tokenizer class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `General` > `Additional Include Directories` > add path to boost file.<br>
 
-Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
+- Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
 
 #### Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files, Map and Reduce is connect as DLL to the client executable file for mapping word and reducing word.
@@ -117,10 +117,10 @@ _______________
 * ### Project 1
 
 #### Requirements to Run:
-C++17 - Needed to include the "filesystem" library used by the FileManager class.
+- C++17 - Needed to include the "filesystem" library used by the FileManager class. 
 >In Visual Studio, go to `Project` > `Properties` > `Configuration Properties` > `C/C++` > `Language` > `C++ Language Standard` > `ISO C++17 Standard`.<br>
 
-Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.
+- Google Testing - Need Visual Studio installation of "Desktop development with C++", which contains the capability.<br>
 
 #### Summary:
 This is a MapReduce program that takes in a set of text files from an input folder designated by the user and returns a text file that contains every word contained in the input files and how many times each word is repeated. Each class has a corresponding header to declare its methods and include files. <br>
